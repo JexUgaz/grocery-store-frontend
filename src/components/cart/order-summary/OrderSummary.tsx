@@ -1,5 +1,6 @@
 import { CartItem } from "@/types/CartItem";
 import DiscountsSummary from "./components/DiscountsSummary";
+import CheckoutButton from "./components/CheckoutButton";
 
 interface Props {
   items: CartItem[];
@@ -56,9 +57,7 @@ const OrderSummary: React.FC<Props> = ({ items }) => {
           </div>
         </div>
 
-        <button className="bg-secondary hover:bg-accent transition text-white rounded-3xl py-3 font-bold">
-          Continue to Checkout
-        </button>
+        <CheckoutButton />
       </div>
     </div>
   );
