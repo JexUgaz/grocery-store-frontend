@@ -1,13 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
-import ShoppingCart from "@/components/icons/ShoppingCart";
 import { navbarItems } from "@/data/navbarItems";
 import NavBarItem from "./components/NavBarItem";
+import ShoppingCart from "./components/ShoppingCart";
 
-const NavBar = () => (
+interface Props {
+  shadow?: string;
+  backgroundColor?: string;
+  foregroundColor?: string;
+}
+
+const NavBar: React.FC<Props> = ({
+  shadow = "shadow-md shadow-black/25",
+  backgroundColor = "bg-accent",
+  foregroundColor = "text-white",
+}) => (
   <nav
     id="main-navbar"
-    className="sticky top-0 w-full h-[var(--navbar-height)] text-accent px-6 shadow-2xl shadow-black/25 bg-white flex justify-center z-900 transition-colors duration-100 ease-in-out"
+    className={`sticky top-0 w-full h-[var(--navbar-height)] px-6 flex justify-center z-900 transition-colors duration-100 ease-in-out ${backgroundColor} ${foregroundColor} ${shadow}`}
   >
     <span className="absolute top-0 left-0 backdrop-blur w-[100dvw] h-[var(--navbar-height)] z-900"></span>
 
@@ -23,22 +33,17 @@ const NavBar = () => (
         <p className="text-3xl font-semibold font-fredoka">Grocery Store</p>
       </Link>
 
-      <div className="flex gap-20 items-center">
+      <div id="navigation-items" className="flex gap-20 items-center">
         <div className="flex items-center gap-8 text-base">
-          {navbarItems.map((item) => (
-            <NavBarItem key={item.title} {...item} />
+          {navbarItems.map(({ Icon, link, title }) => (
+            <NavBarItem key={title} link={link}>
+              <Icon className="size-5" /> {title}
+            </NavBarItem>
           ))}
         </div>
-
-        <Link
-          href="/cart"
-          className="relative rounded-xl py-3 px-4 hover:bg-accent hover:text-white transition "
-        >
-          <ShoppingCart className="size-8" />
-          <span className="absolute top-2 right-1 text-white bg-red-500 text-xs px-1.5 rounded-full">
-            2
-          </span>
-        </Link>
+        <NavBarItem link="/cart" className="relative py-3 px-4">
+          <ShoppingCart />
+        </NavBarItem>
       </div>
     </div>
   </nav>

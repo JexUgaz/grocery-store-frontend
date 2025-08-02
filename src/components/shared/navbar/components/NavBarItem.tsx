@@ -1,13 +1,37 @@
-import { NavBarData } from "@/types/NavBarData";
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const NavBarItem: React.FC<NavBarData> = ({ Icon, link, title }) => (
-  <Link
-    href={link}
-    className="rounded-3xl font-bold py-2 px-5 hover:bg-accent hover:text-white transition flex gap-2"
-  >
-    <Icon className="size-5" /> {title}
-  </Link>
-);
+interface Props {
+  link: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const NavBarItem: React.FC<Props> = ({
+  link,
+  children,
+  className = "py-2 px-5",
+}) => {
+  const pathName = usePathname();
+  const isActive = pathName === link;
+
+  const isHome = pathName === "/";
+  const extraClass = isHome ? "home-" : "";
+
+  const inactiveClasses = `${extraClass}navbar-item-inactive`;
+  const activeClasses = `${extraClass}navbar-item-active`;
+
+  const finalClasses = isActive ? activeClasses : inactiveClasses;
+
+  return (
+    <Link
+      href={link}
+      className={`rounded-3xl font-bold flex gap-2 ${finalClasses} ${className}`}
+    >
+      {children}
+    </Link>
+  );
+};
 
 export default NavBarItem;

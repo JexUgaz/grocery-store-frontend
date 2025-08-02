@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 @theme static {
-  --max-page-width: 90rem;
   --navbar-height: 80px;
+  --topbar-height: 36px;
+  --footer-height: 240px;
+
+  --max-page-width: 90rem;
   --radius-5xl: 3rem;
 
   --color-background: #f0f0f0;
@@ -86,6 +89,13 @@
     max-width: var(--max-page-width);
   }
 
+  body > main {
+    min-height: calc(
+      100dvh - var(--navbar-height) - var(--footer-height) -
+        var(--topbar-height)
+    );
+  }
+
   button {
     cursor: pointer;
   }
@@ -125,5 +135,25 @@
   }
   .tooltip-accent::after {
     border-color: var(--color-accent) transparent transparent transparent;
+  }
+
+  .navbar-item {
+    @apply rounded-3xl font-bold py-2 px-5 flex gap-2;
+  }
+
+  .navbar-item-active {
+    @apply bg-white text-accent;
+  }
+
+  .navbar-item-inactive {
+    @apply hover:bg-white hover:text-accent transition;
+  }
+
+  .home-navbar-item-active {
+    @apply bg-accent text-white;
+  }
+
+  .home-navbar-item-inactive {
+    @apply hover:bg-accent hover:text-white transition;
   }
 }

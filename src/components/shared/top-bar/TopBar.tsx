@@ -7,7 +7,7 @@ import ContactButton from "./components/ContactButton";
 import SocialMedia from "./components/SocialMedia";
 
 const TopBar = () => (
-  <aside className="w-full bg-secondary flex items-center justify-between px-10 text-white py-2 ">
+  <aside className="h-[var(--topbar-height)] w-full bg-secondary flex items-center justify-between px-10 text-white">
     <div className="flex items-center gap-5">
       <ContactButton
         Icon={EmailIcon}

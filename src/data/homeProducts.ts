@@ -4,6 +4,7 @@ import { CategoryTitle } from "./categories";
 export const homeProducts: Record<CategoryTitle, Product[]> = {
   Fruits: [
     {
+      id: "1a6c8aa4-7dd0-4cd6-a517-9c9a2b944378",
       name: "Bananas",
       priceOriginal: 1.2,
       currency: "USD",
@@ -11,6 +12,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/bananas.webp",
     },
     {
+      id: "ddaffe37-f411-4f50-a8c0-a61c07ba16cc",
       name: "Red Apples",
       priceOriginal: 2.5,
       priceOffer: 2.0,
@@ -19,6 +21,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/apples.webp",
     },
     {
+      id: "772acd0a-8659-46f9-9c94-40ee26e6b6f4",
       name: "Grapes (seedless)",
       priceOriginal: 3.2,
       priceOffer: 2.88,
@@ -27,6 +30,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/grapes.webp",
     },
     {
+      id: "2c08449b-b5fc-4eae-b95b-0d6f097ea4254",
       name: "Strawberries (local)",
       priceOriginal: 4.0,
       priceOffer: 3.5,
@@ -35,6 +39,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/strawberries.webp",
     },
     {
+      id: "28f01599-f799-4077-a3f3-79afef940351",
       name: "Oranges",
       priceOriginal: 2.0,
       currency: "USD",
@@ -42,6 +47,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/oranges.webp",
     },
     {
+      id: "71f04931-c1d3-4a87-9ce1-b09998619129",
       name: "Pineapple",
       priceOriginal: 3.5,
       priceOffer: 2.99,
@@ -50,6 +56,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/pineapple.webp",
     },
     {
+      id: "78d0ba54-8ae3-42e3-91a7-469290950ea3",
       name: "Mango (ripe)",
       priceOriginal: 1.8,
       currency: "USD",
@@ -57,6 +64,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/mango.webp",
     },
     {
+      id: "11039c11-c15c-4e68-8bb5-2b0f675d27c1",
       name: "Blueberries (organic)",
       priceOriginal: 4.5,
       priceOffer: 3.99,
@@ -65,6 +73,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/blueberries.webp",
     },
     {
+      id: "5b3a6710-9b21-4636-8779-8ec796cd19d3",
       name: "Kiwi",
       priceOriginal: 2.2,
       currency: "USD",
@@ -72,6 +81,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/fruits/kiwi.webp",
     },
     {
+      id: "5d63e695-9844-4ff1-a76a-80fec9d7404a",
       name: "Avocado (Hass)",
       priceOriginal: 2.8,
       priceOffer: 2.4,
@@ -82,6 +92,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
   ],
   "Pantry Staples": [
     {
+      id: "320172f0-6da6-457d-9810-a4a117b1345a",
       name: "Organic Rolled Oats",
       priceOriginal: 4.5,
       priceOffer: 3.99,
@@ -90,6 +101,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/organic-rolled-oats.webp",
     },
     {
+      id: "2486d5f1-5c54-41fc-ab29-cad49587624f",
       name: "Rice",
       priceOriginal: 3.8,
       currency: "USD",
@@ -97,6 +109,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/rice.webp",
     },
     {
+      id: "15061446-0be2-4203-821a-2a1cd631b4a7",
       name: "Red Lentils",
       priceOriginal: 2.2,
       priceOffer: 1.99,
@@ -105,6 +118,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/red-lentils.webp",
     },
     {
+      id: "897eea9d-bf5b-445c-b80d-e01bddacf997",
       name: "All-purpose Flour",
       priceOriginal: 2.5,
       priceOffer: 1.99,
@@ -113,6 +127,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/all-purpose-flour.webp",
     },
     {
+      id: "7db668bd-a45c-4032-87bf-bf39e72ba615",
       name: "Pasta Fusilli",
       priceOriginal: 1.8,
       currency: "USD",
@@ -120,6 +135,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/pasta-fusilli.webp",
     },
     {
+      id: "9123b9a5-3c5a-40e8-acf7-3e4a63069b83",
       name: "Tomato Sauce (jar)",
       priceOriginal: 1.2,
       priceOffer: 0.99,
@@ -128,6 +144,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/tomato-sauce.webp",
     },
     {
+      id: "b256249e-cd38-41b5-ab45-9ce67cd1ba6b",
       name: "Peanut Butter",
       priceOriginal: 3.0,
       priceOffer: 2.5,
@@ -136,6 +153,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/peanut-butter.webp",
     },
     {
+      id: "5133b4b8-ff18-4a2a-80b2-139b04140d42",
       name: "Canned Tuna (in water)",
       priceOriginal: 1.6,
       currency: "USD",
@@ -143,6 +161,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/canned-tuna.webp",
     },
     {
+      id: "80264cce-ca83-4382-b915-0ef06bef9721",
       name: "Vegetable Stock Cube",
       priceOriginal: 0.8,
       priceOffer: 0.66,
@@ -151,6 +170,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/pantry-staples/vegetable-stock-cube.webp",
     },
     {
+      id: "81538300-9ed7-414a-bbeb-82bd151e56f4",
       name: "Salt (iodized)",
       priceOriginal: 0.5,
       currency: "USD",
@@ -160,6 +180,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
   ],
   Vegetables: [
     {
+      id: "6edd6295-3ddf-45d3-bca0-ec7b1fd6af2e",
       name: "Carrots (bunch)",
       priceOriginal: 1.2,
       currency: "USD",
@@ -167,6 +188,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/carrots.webp",
     },
     {
+      id: "d8e84d33-ba9a-4ec6-80e0-56cfa7d9cd39",
       name: "Broccoli",
       priceOriginal: 1.8,
       priceOffer: 1.5,
@@ -175,6 +197,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/broccoli.webp",
     },
     {
+      id: "b88a9a05-0dd8-4cd9-a394-cc6128ee9089",
       name: "Tomatoes (vine)",
       priceOriginal: 2.5,
       priceOffer: 2.25,
@@ -183,6 +206,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/tomatoes.webp",
     },
     {
+      id: "39fb737b-7ecc-4b41-9c44-2bf2f9856fc3",
       name: "Cucumber",
       priceOriginal: 1.5,
       currency: "USD",
@@ -190,6 +214,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/cucumber.webp",
     },
     {
+      id: "57a0b5e8-27ea-4bfb-acd4-9aae40afd736",
       name: "Bell Peppers (mixed)",
       priceOriginal: 3.0,
       priceOffer: 2.7,
@@ -198,6 +223,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/bell-peppers.webp",
     },
     {
+      id: "0fd54176-1336-49f7-8e8f-cdc95999760b",
       name: "Spinach (fresh pack)",
       priceOriginal: 2.2,
       priceOffer: 1.99,
@@ -206,6 +232,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/spinach.webp",
     },
     {
+      id: "de822fed-8c9a-41de-8357-fd5a779787db",
       name: "Cauliflower",
       priceOriginal: 2.8,
       currency: "USD",
@@ -213,6 +240,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/cauliflower.webp",
     },
     {
+      id: "403ee128-535d-49fd-b4cb-744942a1e673",
       name: "Zucchini",
       priceOriginal: 2.0,
       currency: "USD",
@@ -220,6 +248,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/zucchini.webp",
     },
     {
+      id: "c9aea5b3-a811-4efd-8d46-a99889f815db",
       name: "Sweet Corn (ears)",
       priceOriginal: 1.6,
       currency: "USD",
@@ -227,6 +256,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/vegetables/sweet-corn.webp",
     },
     {
+      id: "05612bce-8bf0-4086-a1f1-c19b92313a8a",
       name: "Lettuce (romaine)",
       priceOriginal: 1.5,
       priceOffer: 1.35,
@@ -237,6 +267,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
   ],
   "Cleaning Products": [
     {
+      id: "0216083c-dd92-4aef-8df4-89201396bc4e",
       name: "All-purpose Cleaner (spray)",
       priceOriginal: 3.8,
       priceOffer: 3.3,
@@ -245,6 +276,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/all-purpose-cleaner.webp",
     },
     {
+      id: "9fa43a91-8eea-44b8-ac74-123ff82dabd7",
       name: "Dishwashing Liquid",
       priceOriginal: 2.5,
       priceOffer: 2.0,
@@ -253,6 +285,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/dishwashing-liquid.webp",
     },
     {
+      id: "955e9002-b779-4212-940f-f638d483465c",
       name: "Laundry Detergent (powder)",
       priceOriginal: 5.0,
       priceOffer: 4.25,
@@ -261,6 +294,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/laundry-detergent.webp",
     },
     {
+      id: "278afe14-0254-47cb-a378-3ee5db51b47a",
       name: "Glass Cleaner",
       priceOriginal: 3.2,
       currency: "USD",
@@ -268,6 +302,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/glass-cleaner.webp",
     },
     {
+      id: "00f6d8bd-4324-43bc-9d82-2a9c4ac47f14",
       name: "Bleach (liquid)",
       priceOriginal: 1.8,
       priceOffer: 1.5,
@@ -276,6 +311,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/bleach.webp",
     },
     {
+      id: "a18ddcd6-1d47-4990-ba25-4636f5f52f1f",
       name: "Disinfectant Wipes (canister)",
       priceOriginal: 4.0,
       currency: "USD",
@@ -283,6 +319,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/disinfectant-wipes.webp",
     },
     {
+      id: "a6fd215e-da64-4fa6-9245-faeec475c6fe",
       name: "Toilet Cleaner",
       priceOriginal: 2.8,
       priceOffer: 2.5,
@@ -291,6 +328,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/toilet-cleaner.webp",
     },
     {
+      id: "2fee9b2c-dfa9-4f4e-84fc-a1e21902c0b9",
       name: "Fabric Softener",
       priceOriginal: 3.6,
       priceOffer: 3.2,
@@ -299,6 +337,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/fabric-softener.webp",
     },
     {
+      id: "9470bcad-e65f-4909-b274-dd9c48a06eea",
       name: "Air Freshener Spray",
       priceOriginal: 2.0,
       currency: "USD",
@@ -306,6 +345,7 @@ export const homeProducts: Record<CategoryTitle, Product[]> = {
       image: "/images/cleaning-products/air-freshener-spray.webp",
     },
     {
+      id: "bf3e70a4-5bd9-4e98-aac1-79fc60461053",
       name: "Sponges (multi pack)",
       priceOriginal: 1.5,
       priceOffer: 1.2,

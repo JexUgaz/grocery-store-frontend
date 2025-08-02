@@ -3,12 +3,26 @@ import ProductView from "@/components/Home/product-view/ProductView";
 import SectionView from "@/components/Home/section-view/SectionView";
 import { CategoryTitle } from "@/data/categories";
 import { homeProducts } from "@/data/homeProducts";
-import HomeNavbar from "@/components/Home/home-navbar/HomeNavbar";
+import NavbarSentinelWrapper from "@/components/Home/navbar-wrapper/NavbarSentinelWrapper";
+import NavBar from "@/components/shared/navbar/NavBar";
+import HomeBanner from "@/components/Home/home-banner/HomeBanner";
 
 const Home = () => {
   return (
     <>
-      <HomeNavbar />
+      <NavbarSentinelWrapper>
+        <NavBar
+          shadow="shadow-2xl shadow-black/25"
+          backgroundColor="bg-white"
+          foregroundColor="text-accent"
+        />
+        <div
+          id="after-navbar-sentinel"
+          className="h-[1px] w-full bg-white"
+        ></div>
+        <HomeBanner />
+        <div id="after-banner-sentinel" className="h-[1px]"></div>
+      </NavbarSentinelWrapper>
       <section className="my-10 py-10 px-20 flex flex-col bg-white w-full rounded-5xl gap-20">
         <SectionView title="Popular Categories">
           <CategoriesView />

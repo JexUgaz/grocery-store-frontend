@@ -61,9 +61,9 @@ const ProductCard: React.FC<Props> = ({ product }) => {
           </div>
         </div>
         <div className="flex justify-center py-2 gap-1 mx-5">
-          <ButtonAction />
+          <ButtonAction product={product} />
           <Link
-            href={`/${name}`}
+            href="#"
             className="relative group/tooltip bg-secondary text-white p-4 rounded-2xl hover:animate-lift"
           >
             <LinkIcon className="size-5" />

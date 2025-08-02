@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/IconProps";
 
-const ShoppingCart: React.FC<IconProps> = ({ className = "" }) => (
+const ShoppingCartIcon: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     className={className}
     width="24"
@@ -27,4 +27,4 @@ const ShoppingCart: React.FC<IconProps> = ({ className = "" }) => (
   </svg>
 );
 
-export default ShoppingCart;
+export default ShoppingCartIcon;
