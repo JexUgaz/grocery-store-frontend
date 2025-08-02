@@ -33,7 +33,7 @@ const HomeNavbar = () => {
         return;
       }
 
-      nav.classList.add("bg-secondary", "text-white");
+      nav.classList.add("bg-accent", "text-white");
       nav.classList.remove("bg-white", "bg-transparent");
     };
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="w-full bg-secondary text-white py-8 px-6">
+  <footer className="w-full bg-accent text-white py-8 px-6">
     <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between gap-6">
       <div>
         <h2 className="text-lg font-bold">Grocery Store</h2>

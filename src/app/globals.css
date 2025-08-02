@@ -89,8 +89,41 @@
   button {
     cursor: pointer;
   }
+}
 
+@layer utilities {
   .font-fredoka {
     font-family: var(--font-fredoka);
+  }
+
+  .tooltip {
+    @apply absolute -top-8 left-1/2 -translate-x-1/2 text-xs px-2 py-1 rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap;
+    color: var(--color-white);
+    position: absolute;
+  }
+
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    z-index: 1000;
+  }
+
+  .tooltip-secondary {
+    background-color: var(--color-secondary);
+  }
+  .tooltip-secondary::after {
+    border-color: var(--color-secondary) transparent transparent transparent;
+  }
+
+  .tooltip-accent {
+    background-color: var(--color-accent);
+  }
+  .tooltip-accent::after {
+    border-color: var(--color-accent) transparent transparent transparent;
   }
 }

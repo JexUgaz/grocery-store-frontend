@@ -2,13 +2,15 @@ import { Product } from "@/types/Product";
 import ButtonAction from "./ButtonAction";
 import Link from "next/link";
 import LinkIcon from "@/components/icons/LinkIcon";
+import Image from "next/image";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard: React.FC<Props> = ({ product }) => {
-  const { name, priceOriginal, priceOffer, currency, quantityInfo } = product;
+  const { name, priceOriginal, priceOffer, currency, quantityInfo, image } =
+    product;
 
   const formattedPrice = (price: number) =>
     currency === "USD" ? `$${price.toFixed(2)}` : `S/.${price.toFixed(2)}`;
@@ -18,11 +20,22 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div
-      className="group cursor-auto w-64 bg-white rounded-3xl overflow-hidden shadow-md transition hover:scale-105
+      className="group cursor-auto w-70 bg-white rounded-3xl overflow-hidden shadow-md transition-transform duration-500 ease-in-out hover:scale-105
             flex flex-col"
     >
-      <div className="h-40 bg-gray-200 flex items-center justify-center">
-        <span className="text-gray-500 text-sm">Image Placeholder</span>
+      <div className="h-40 overflow-hidden bg-white flex items-center justify-center">
+        {!image && (
+          <span className="text-gray-500 text-sm">Image Placeholder</span>
+        )}
+        {image && (
+          <Image
+            alt=""
+            src={image}
+            width={280}
+            height={200}
+            className="object-cover scale-110 group-hover:scale-100 transition-transform duration-500 ease-in-out"
+          />
+        )}
       </div>
 
       <div className="flex flex-col justify-between flex-1 gap-2">
@@ -48,13 +61,14 @@ const ProductCard: React.FC<Props> = ({ product }) => {
           </div>
         </div>
         <div className="flex justify-center py-2 gap-1 mx-5">
+          <ButtonAction />
           <Link
             href={`/${name}`}
-            className="bg-secondary text-white p-4 rounded-2xl hover:animate-lift"
+            className="relative group/tooltip bg-secondary text-white p-4 rounded-2xl hover:animate-lift"
           >
             <LinkIcon className="size-5" />
+            <span className="tooltip tooltip-secondary">View Details</span>
           </Link>
-          <ButtonAction />
         </div>
       </div>
     </div>
