@@ -11,12 +11,14 @@ import {
 import z from "zod";
 import { formatZodErrors, formatCardNumber, formatExpiryDate } from "@/utils";
 import CheckoutReview from "./components/CheckoutReview";
+import { CreateOrderItem } from "@/types/order/CreateOrderItem";
 
 interface Props {
   totalAmount: number;
+  items: CreateOrderItem[];
 }
 
-const CheckoutView: React.FC<Props> = ({ totalAmount }) => {
+const CheckoutView: React.FC<Props> = ({ totalAmount, items }) => {
   const [formErrors, setFormErrors] = useState<CheckoutErrors>({});
   const [showSummary, setShowSummary] = useState(false);
   const [clientData, setClientData] = useState<Client>({
@@ -91,6 +93,7 @@ const CheckoutView: React.FC<Props> = ({ totalAmount }) => {
           card={cardData}
           client={clientData}
           goBack={() => setShowSummary(false)}
+          items={items}
         />
       )}
     </>

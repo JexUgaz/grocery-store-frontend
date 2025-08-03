@@ -1,5 +1,7 @@
-import { CartItem } from "@/types/CartItem";
-import { Product } from "@/types/Product";
+import { ProductWithCategory } from "@/types/product/ProductWithCategory";
+import { CartItem } from "@/types/shopping-cart/CartItem";
+import { CartItemWithProduct } from "@/types/shopping-cart/CartItemWithProduct";
+import { ShoppingCart } from "@/types/shopping-cart/ShoppingCart";
 import { hasCookie, getCookie, setCookie, deleteCookie } from "cookies-next";
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
@@ -19,10 +21,25 @@ export class ShoppingCartService {
     return JSON.parse((getCookie(this.cartKey) as string) ?? "[]");
   }
 
-  async removeFromCart(product: Product): Promise<void> {
+  fromCookieCartToShoppingCart(
+    cookieCart: CartItem[],
+    products: ProductWithCategory[]
+  ): ShoppingCart {
+    return cookieCart
+      .map(({ quantity, productId }: CartItem): CartItemWithProduct | null => {
+        const product = products.find((p) => p.id === productId);
+        if (!product) return null;
+        return {
+          quantity,
+          product,
+        };
+      })
+      .filter((c) => !!c);
+  }
+
+  async removeFromCart(productId: string): Promise<void> {
     const cart = await this.getCookieCartClient();
-    const removedId = product.id;
-    const index = cart.findIndex((item) => item.product.id === removedId);
+    const index = cart.findIndex((item) => item.productId === productId);
     const itemExists = index !== -1;
     if (!itemExists) return;
 
@@ -37,39 +54,32 @@ export class ShoppingCartService {
     }
 
     item.quantity = newQuantity;
-    item.total = parseFloat((newQuantity * item.unitPrice).toFixed(2));
 
     cart[index] = item;
     this.save(cart);
   }
 
-  async addToCart(product: Product): Promise<void> {
+  async addToCart(productId: string): Promise<void> {
     const cart = await this.getCookieCartClient();
-    const newId = product.id;
-    const index = cart.findIndex((item) => item.product.id === newId);
+    const index = cart.findIndex((item) => item.productId === productId);
     const itemExists = index !== -1;
 
     if (itemExists) {
       const oldItem = cart[index];
-      const { quantity, unitPrice } = oldItem;
+      const { quantity } = oldItem;
       if (quantity === this.maxQuantityByProduct) return;
 
       const newQuantity = quantity + 1;
 
       oldItem.quantity = newQuantity;
-      oldItem.total = parseFloat((newQuantity * unitPrice).toFixed(2));
       cart[index] = oldItem;
       this.save(cart);
       return;
     }
 
-    const { priceOriginal, priceOffer } = product;
-    const price = priceOffer ?? priceOriginal;
     cart.push({
       quantity: 1,
-      total: price,
-      unitPrice: price,
-      product,
+      productId,
     });
     this.save(cart);
   }

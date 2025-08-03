@@ -1,23 +1,23 @@
-import { CartItem } from "@/types/CartItem";
 import DiscountsSummary from "./components/DiscountsSummary";
 import CheckoutButton from "./components/CheckoutButton";
+import { ShoppingCart } from "@/types/shopping-cart/ShoppingCart";
 
 interface Props {
-  items: CartItem[];
+  cart: ShoppingCart;
 }
 
-const OrderSummary: React.FC<Props> = ({ items }) => {
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+const OrderSummary: React.FC<Props> = ({ cart }) => {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const totalOriginalPrice = items.reduce(
+  const totalOriginalPrice = cart.reduce(
     (sum, item) => sum + item.product.priceOriginal * item.quantity,
     0
   );
 
-  const discounts = items
+  const discounts = cart
     .map((item) => {
       const { priceOriginal, priceOffer, name } = item.product;
-      const hasDiscount = priceOffer != null && priceOffer < priceOriginal;
+      const hasDiscount = !!priceOffer;
       return hasDiscount
         ? {
             name,

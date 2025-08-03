@@ -12,9 +12,10 @@ import { Card } from "@/types/Card";
 import { Client } from "@/types/Client";
 import { useState } from "react";
 import PaymentSuccessfully from "./PaymentSuccessfully";
-import { shoppingCartService } from "@/services";
+import { orderClientService, shoppingCartService } from "@/services";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { CreateOrderItem } from "@/types/order/CreateOrderItem";
 
 type PaymentStatus = "idle" | "processing" | "succeeded" | "failed";
 
@@ -22,6 +23,7 @@ interface Props {
   totalAmount: number;
   card: Card;
   client: Client;
+  items: CreateOrderItem[];
   goBack: () => void;
 }
 
@@ -29,6 +31,7 @@ const CheckoutReview: React.FC<Props> = ({
   totalAmount,
   card,
   client,
+  items,
   goBack,
 }) => {
   const router = useRouter();
@@ -38,16 +41,34 @@ const CheckoutReview: React.FC<Props> = ({
   const [status, setStatus] = useState<PaymentStatus>("idle");
 
   const finalizeOrder = async () => {
-    setStatus("processing");
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    await shoppingCartService.cleanCart();
+    try {
+      setStatus("processing");
 
-    toast.custom(() => <PaymentSuccessfully client={client} />, {
-      duration: 5000,
-    });
+      const { address, city, email, name, phone, reference } = client;
 
-    router.replace("/");
-    setStatus("succeeded");
+      const orderId = await orderClientService.completeOrderClient({
+        clientAddress: address,
+        clientCity: city,
+        clientEmail: email,
+        clientName: name,
+        clientPhone: phone,
+        clientReference: reference,
+        items,
+      });
+
+      if (!orderId) return;
+
+      await shoppingCartService.cleanCart();
+      toast.custom(
+        () => <PaymentSuccessfully client={client} orderId={orderId} />,
+        {
+          duration: 5000,
+        }
+      );
+      router.replace("/");
+    } finally {
+      setStatus("failed");
+    }
   };
 
   const isProcessing = status === "processing";

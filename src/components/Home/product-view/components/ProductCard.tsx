@@ -1,8 +1,8 @@
-import { Product } from "@/types/Product";
 import ButtonAction from "./ButtonAction";
 import Link from "next/link";
 import LinkIcon from "@/components/icons/LinkIcon";
 import Image from "next/image";
+import { Product } from "@/types/product/Product";
 
 interface Props {
   product: Product;
@@ -30,7 +30,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         {image && (
           <Image
             alt=""
-            src={image}
+            src={`/images${image}`}
             width={280}
             height={200}
             className="object-cover scale-110 group-hover:scale-100 transition-transform duration-500 ease-in-out"

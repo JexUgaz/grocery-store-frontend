@@ -1,13 +1,13 @@
-import { CartItem } from "@/types/CartItem";
+import { ShoppingCart } from "@/types/shopping-cart/ShoppingCart";
 import CartItemCard from "./components/CartItemCard";
 import EmptyCartMessage from "./components/EmptyCartMessage";
 
 interface Props {
-  items: CartItem[];
+  cart: ShoppingCart;
 }
-const CartItemsView: React.FC<Props> = ({ items }) => {
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const cartEmpty = items.length === 0;
+const CartItemsView: React.FC<Props> = ({ cart }) => {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartEmpty = totalItems === 0;
 
   return (
     <div className="w-full max-w-3xl">
@@ -23,7 +23,7 @@ const CartItemsView: React.FC<Props> = ({ items }) => {
         {cartEmpty && <EmptyCartMessage />}
         {!cartEmpty && (
           <ul className="space-y-6">
-            {items.map((item) => (
+            {cart.map((item) => (
               <CartItemCard key={item.product.id} item={item} />
             ))}
           </ul>

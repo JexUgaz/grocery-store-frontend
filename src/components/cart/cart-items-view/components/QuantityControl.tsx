@@ -1,27 +1,26 @@
 "use client";
 
 import { shoppingCartService } from "@/services";
-import { Product } from "@/types/Product";
 import { useRouter } from "next/navigation";
 
 interface Props {
   quantity: number;
-  product: Product;
+  productId: string;
 }
 
-const QuantityControl: React.FC<Props> = ({ quantity, product }) => {
+const QuantityControl: React.FC<Props> = ({ quantity, productId }) => {
   const router = useRouter();
 
   const btnAddIsDisabled =
     quantity === shoppingCartService.maxQuantityByProduct;
 
   const onDecrease = () => {
-    shoppingCartService.removeFromCart(product);
+    shoppingCartService.removeFromCart(productId);
     router.refresh();
   };
 
   const onAdd = () => {
-    shoppingCartService.addToCart(product);
+    shoppingCartService.addToCart(productId);
     router.refresh();
   };
 

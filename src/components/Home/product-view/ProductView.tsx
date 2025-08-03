@@ -1,4 +1,4 @@
-import { Product } from "@/types/Product";
+import { Product } from "@/types/product/Product";
 import ProductCard from "./components/ProductCard";
 import DraggableScroll from "@/components/shared/draggable-scroll/DraggableScroll";
 

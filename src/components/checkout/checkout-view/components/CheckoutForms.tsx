@@ -2,6 +2,8 @@ import TextInput from "@/components/shared/inputs/TextInput";
 import { Card } from "@/types/Card";
 import { Client } from "@/types/Client";
 import { CheckoutErrors } from "@/components/checkout/validations/checkoutSchema";
+import ArrowIcon from "@/components/icons/ArrowIcon";
+import Link from "next/link";
 
 interface Props {
   totalAmount: number;
@@ -27,7 +29,10 @@ const CheckoutForms: React.FC<Props> = ({
   return (
     <form onSubmit={handleSubmit} className="w-full flex justify-center gap-10">
       <div className="flex-1 max-w-3xl space-y-4 bg-white p-8 rounded-4xl">
-        <h2 className="text-2xl font-semibold text-secondary mb-4">
+        <h2 className="text-2xl font-semibold text-secondary mb-4 flex gap-3 items-center">
+          <Link href="/cart" className="bg-accent rounded-2xl  p-2 text-white ">
+            <ArrowIcon className="rotate-270 size-5" />
+          </Link>{" "}
           Customer Information
         </h2>
         <TextInput

@@ -2,7 +2,7 @@
 
 import AddCartIcon from "@/components/icons/AddCartIcon";
 import { shoppingCartService } from "@/services";
-import { Product } from "@/types/Product";
+import { Product } from "@/types/product/Product";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -13,7 +13,7 @@ const ButtonAction: React.FC<Props> = ({ product }) => {
   const router = useRouter();
 
   const addToCart = () => {
-    shoppingCartService.addToCart(product);
+    shoppingCartService.addToCart(product.id);
     router.refresh();
   };
 
