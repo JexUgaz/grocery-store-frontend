@@ -10,7 +10,8 @@ export const navbarItems: NavBarData[] = [
   },
   {
     Icon: StoreIcon,
-    link: "/shop",
+    // link: "/shop",
+    link: "#",
     title: "Shop",
   },
 ];

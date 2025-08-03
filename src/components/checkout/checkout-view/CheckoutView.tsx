@@ -3,23 +3,21 @@ import { Card } from "@/types/Card";
 import { Client } from "@/types/Client";
 import { useState } from "react";
 import CheckoutForms from "./components/CheckoutForms";
+import {
+  CheckoutErrors,
+  CheckoutSchema,
+  checkoutSchema,
+} from "@/components/checkout/validations/checkoutSchema";
+import z from "zod";
+import { formatZodErrors, formatCardNumber, formatExpiryDate } from "@/utils";
+import CheckoutReview from "./components/CheckoutReview";
 
-const formatCardNumber = (value: string) => {
-  return value
-    .replace(/\D/g, "")
-    .slice(0, 16)
-    .replace(/(.{4})/g, "$1 ")
-    .trim();
-};
+interface Props {
+  totalAmount: number;
+}
 
-const formatExpiryDate = (value: string) => {
-  const raw = value.replace(/\D/g, "");
-  if (raw.length === 0) return "";
-  if (raw.length <= 2) return raw;
-  return raw.slice(0, 2) + "/" + raw.slice(2, 4);
-};
-
-const CheckoutView = () => {
+const CheckoutView: React.FC<Props> = ({ totalAmount }) => {
+  const [formErrors, setFormErrors] = useState<CheckoutErrors>({});
   const [showSummary, setShowSummary] = useState(false);
   const [clientData, setClientData] = useState<Client>({
     name: "",
@@ -32,7 +30,7 @@ const CheckoutView = () => {
 
   const [cardData, setCardData] = useState<Card>({
     number: "",
-    name: "",
+    cardName: "",
     expiry: "",
     cvv: "",
   });
@@ -60,17 +58,27 @@ const CheckoutView = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setShowSummary(true);
-  };
+    const result = checkoutSchema.safeParse({
+      client: clientData,
+      card: cardData,
+    });
+    if (!result.success) {
+      const tree = z.treeifyError(result.error);
+      const formErrors = formatZodErrors<CheckoutSchema>(tree);
+      setFormErrors(formErrors);
+      return;
+    }
 
-  const finalizeOrder = () => {
-    alert("Orden finalizada ✅");
+    setFormErrors({});
+    setShowSummary(true);
   };
 
   return (
     <>
       {!showSummary ? (
         <CheckoutForms
+          totalAmount={totalAmount}
+          formErrors={formErrors}
           card={cardData}
           client={clientData}
           handleChangeCard={handleChangeCard}
@@ -78,45 +86,12 @@ const CheckoutView = () => {
           handleSubmit={handleSubmit}
         />
       ) : (
-        <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-secondary">
-            Review Your Order
-          </h2>
-          <div className="grid grid-cols-2 gap-10 text-sm">
-            <div className="space-y-1">
-              <h3 className="font-semibold text-base">Customer Info</h3>
-              <p>{clientData.name}</p>
-              <p>{clientData.email}</p>
-              <p>{clientData.phone}</p>
-              <p>
-                {clientData.address}, {clientData.city}
-              </p>
-              {clientData.reference && <p>Ref: {clientData.reference}</p>}
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="font-semibold text-base">Payment Info</h3>
-              <p>Card: **** **** **** {cardData.number.slice(-4)}</p>
-              <p>Name: {cardData.name}</p>
-              <p>Exp: {cardData.expiry}</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4 pt-4">
-            <button
-              onClick={() => setShowSummary(false)}
-              className="py-2 px-4 border border-secondary text-secondary rounded-xl hover:bg-secondary hover:text-white transition"
-            >
-              Edit
-            </button>
-            <button
-              onClick={finalizeOrder}
-              className="py-2 px-6 bg-secondary text-white font-semibold rounded-xl hover:bg-primary transition"
-            >
-              Confirm Order
-            </button>
-          </div>
-        </div>
+        <CheckoutReview
+          totalAmount={totalAmount}
+          card={cardData}
+          client={clientData}
+          goBack={() => setShowSummary(false)}
+        />
       )}
     </>
   );

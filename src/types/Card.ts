@@ -1,6 +1,6 @@
 export interface Card {
   number: string;
-  name: string;
+  cardName: string;
   expiry: string;
   cvv: string;
 }

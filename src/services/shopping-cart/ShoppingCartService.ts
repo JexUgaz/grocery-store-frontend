@@ -1,6 +1,6 @@
 import { CartItem } from "@/types/CartItem";
 import { Product } from "@/types/Product";
-import { hasCookie, getCookie, setCookie } from "cookies-next";
+import { hasCookie, getCookie, setCookie, deleteCookie } from "cookies-next";
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
 export class ShoppingCartService {
@@ -72,6 +72,10 @@ export class ShoppingCartService {
       product,
     });
     this.save(cart);
+  }
+
+  async cleanCart(): Promise<void> {
+    await deleteCookie(this.cartKey);
   }
 
   private save(newCart: CartItem[]) {

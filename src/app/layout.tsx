@@ -3,6 +3,7 @@ import { Montserrat, Fredoka } from "next/font/google";
 import "./globals.css";
 import TopBar from "@/components/shared/top-bar/TopBar";
 import Footer from "@/components/shared/footer/Footer";
+import { Toaster } from "sonner";
 
 export const fredoka = Fredoka({
   subsets: ["latin"],
@@ -40,6 +41,8 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${fredoka.variable} antialiased`}
       >
+        <Toaster position="top-right" richColors closeButton />
+
         <TopBar />
         {children}
         <Footer />

@@ -1,8 +1,11 @@
 import TextInput from "@/components/shared/inputs/TextInput";
 import { Card } from "@/types/Card";
 import { Client } from "@/types/Client";
+import { CheckoutErrors } from "@/components/checkout/validations/checkoutSchema";
 
 interface Props {
+  totalAmount: number;
+  formErrors: CheckoutErrors;
   card: Card;
   client: Client;
   handleChangeCard: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -11,12 +14,16 @@ interface Props {
 }
 
 const CheckoutForms: React.FC<Props> = ({
+  formErrors,
+  totalAmount,
   client,
   handleChangeClient,
   handleSubmit,
   handleChangeCard,
   card,
 }) => {
+  const clientErrors = formErrors.client;
+  const cardErrors = formErrors.card;
   return (
     <form onSubmit={handleSubmit} className="w-full flex justify-center gap-10">
       <div className="flex-1 max-w-3xl space-y-4 bg-white p-8 rounded-4xl">
@@ -29,6 +36,7 @@ const CheckoutForms: React.FC<Props> = ({
           value={client.name}
           onChange={handleChangeClient}
           placeholder="Enter your full name"
+          error={clientErrors?.name}
           required
         />
 
@@ -42,6 +50,7 @@ const CheckoutForms: React.FC<Props> = ({
             placeholder="Enter your email"
             required
             className="w-full"
+            error={clientErrors?.email}
           />
 
           <TextInput
@@ -53,6 +62,7 @@ const CheckoutForms: React.FC<Props> = ({
             placeholder="Enter your phone number"
             required
             className="w-full"
+            error={clientErrors?.phone}
           />
         </div>
         <div className="flex gap-4">
@@ -64,6 +74,7 @@ const CheckoutForms: React.FC<Props> = ({
             placeholder="Enter your address"
             required
             className="w-full"
+            error={clientErrors?.address}
           />
 
           <TextInput
@@ -74,6 +85,7 @@ const CheckoutForms: React.FC<Props> = ({
             placeholder="Enter your city"
             required
             className="w-full"
+            error={clientErrors?.city}
           />
         </div>
         <TextInput
@@ -83,9 +95,10 @@ const CheckoutForms: React.FC<Props> = ({
           onChange={handleChangeClient}
           placeholder="E.g. near the park"
           required={false}
+          error={clientErrors?.reference}
         />
       </div>
-      <div className="flex-1 max-w-xl space-y-4 bg-white rounded-4xl p-8">
+      <div className="flex-1 flex flex-col max-w-xl space-y-4 bg-white rounded-4xl p-8">
         <h2 className="text-2xl font-semibold text-secondary mb-4">
           Payment Information
         </h2>
@@ -96,15 +109,17 @@ const CheckoutForms: React.FC<Props> = ({
           onChange={handleChangeCard}
           placeholder="1234 5678 9012 3456"
           required
+          error={cardErrors?.number}
         />
 
         <TextInput
           label="Name on Card"
-          name="name"
-          value={card.name}
+          name="cardName"
+          value={card.cardName}
           onChange={handleChangeCard}
           placeholder="John Doe"
           required
+          error={cardErrors?.cardName}
         />
 
         <div className="flex gap-4">
@@ -116,6 +131,7 @@ const CheckoutForms: React.FC<Props> = ({
             placeholder="MM/YY"
             required
             className="w-full"
+            error={cardErrors?.expiry}
           />
           <TextInput
             label="CVV"
@@ -126,12 +142,16 @@ const CheckoutForms: React.FC<Props> = ({
             placeholder="123"
             required
             className="w-full"
+            error={cardErrors?.cvv}
           />
+        </div>
+        <div className="text-3xl my-5 font-bold text-secondary flex gap-2 items-end justify-end">
+          <span className="text-base">Total:</span> ${totalAmount.toFixed(2)}
         </div>
 
         <button
           type="submit"
-          className="w-full mt-6 py-3 bg-secondary text-white font-semibold rounded-xl hover:bg-primary transition"
+          className="w-full mt-3 py-3 bg-accent text-white font-semibold rounded-3xl hover:bg-accent/80 transition"
         >
           Continue to Order Summary
         </button>
