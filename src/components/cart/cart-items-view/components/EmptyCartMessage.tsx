@@ -10,8 +10,8 @@ const EmptyCartMessage = () => (
     </p>
 
     <p className="text-center text-muted-foreground max-w-md">
-      You haven't added any products yet. Browse our store to find something you
-      like.
+      You haven&apos;t added any products yet. Browse our store to find
+      something you like.
     </p>
 
     <Link

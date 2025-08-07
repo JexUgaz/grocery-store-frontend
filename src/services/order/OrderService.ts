@@ -14,7 +14,7 @@ export class OrderService extends GroceryStoreApi implements IOrderService {
     });
   }
 
-  completeOrderClient(body: CreateOrder): Promise<string | null> {
+  completeOrderClient(): Promise<string | null> {
     throw new Error("Method not implemented.");
   }
 }

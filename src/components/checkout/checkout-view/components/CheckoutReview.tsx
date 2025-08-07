@@ -56,7 +56,10 @@ const CheckoutReview: React.FC<Props> = ({
         items,
       });
 
-      if (!orderId) return;
+      if (!orderId) {
+        setStatus("failed");
+        return;
+      }
 
       await shoppingCartService.cleanCart();
       toast.custom(
@@ -65,9 +68,9 @@ const CheckoutReview: React.FC<Props> = ({
           duration: 5000,
         }
       );
-      router.replace("/");
+      router.refresh();
     } finally {
-      setStatus("failed");
+      setStatus("succeeded");
     }
   };
 

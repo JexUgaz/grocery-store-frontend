@@ -18,7 +18,7 @@ export class OrderClientService
     });
   }
 
-  completeOrderServer(body: CreateOrder): Promise<ApiResponse<string | null>> {
+  completeOrderServer(): Promise<ApiResponse<string | null>> {
     throw new Error("Method not implemented.");
   }
 }
