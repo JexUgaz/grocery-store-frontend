@@ -46,7 +46,7 @@ const CheckoutReview: React.FC<Props> = ({
       duration: 5000,
     });
 
-    router.replace("/");
+    router.refresh();
     setStatus("succeeded");
   };
 
