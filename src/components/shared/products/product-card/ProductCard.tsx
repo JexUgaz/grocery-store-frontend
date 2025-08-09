@@ -3,23 +3,18 @@ import Link from "next/link";
 import LinkIcon from "@/components/icons/LinkIcon";
 import Image from "next/image";
 import ButtonAction from "./components/ButtonAction";
+import { generateSlug } from "@/utils";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard: React.FC<Props> = ({ product }) => {
-  const {
-    name,
-    id,
-    priceOriginal,
-    priceOffer,
-    currency,
-    quantityInfo,
-    images,
-  } = product;
+  const { name, priceOriginal, priceOffer, currency, quantityInfo, images } =
+    product;
 
   const image = images[0];
+  const slug = generateSlug(name);
 
   const formattedPrice = (price: number) =>
     currency === "USD" ? `$${price.toFixed(2)}` : `S/.${price.toFixed(2)}`;
@@ -79,7 +74,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         <div className="flex justify-center py-2 gap-1 mx-5">
           <ButtonAction product={product} />
           <Link
-            href={`/shop/${id}`}
+            href={`/shop/${slug}`}
             className="relative group/tooltip bg-secondary text-white p-4 rounded-2xl hover:animate-lift"
           >
             <LinkIcon className="size-5" />

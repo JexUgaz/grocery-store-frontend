@@ -11,9 +11,9 @@ const EmptyResult: React.FC<Props> = ({ query }) => (
     <p className="text-gray-500 text-base max-w-lg text-center">
       {query ? (
         <>
-          No results for the term <span className="font-bold">"{query}"</span>{" "}
-          in our product catalog. You can try another search term similar to
-          this one.
+          No results for the term{" "}
+          <span className="font-bold">&quot;{query}&quot;</span> in our product
+          catalog. You can try another search term similar to this one.
         </>
       ) : (
         <>

@@ -32,22 +32,27 @@ const ShopFilters: React.FC<Props> = ({ initFilters }) => {
     isDirty,
   } = useFilterState(initFilters);
 
-  const resetSearchParams = (data: FilterProps) => {
-    const params = new URLSearchParams(searchParams.toString());
-    console.log({ data });
+  const resetSearchParams = useCallback(
+    (data: FilterProps) => {
+      const params = new URLSearchParams(searchParams.toString());
 
-    Object.entries(data).forEach(([key, value]) => {
-      if (attrIsEmpty(value)) {
-        return params.delete(key);
-      }
-      const paramValue = typeof value === "boolean" ? String(value) : value;
-      params.set(key, paramValue ?? "");
-    });
+      Object.entries(data).forEach(([key, value]) => {
+        if (attrIsEmpty(value)) {
+          return params.delete(key);
+        }
+        const paramValue = typeof value === "boolean" ? String(value) : value;
+        params.set(key, paramValue ?? "");
+      });
 
-    router.push(`?${params.toString()}`);
-  };
+      router.push(`?${params.toString()}`);
+    },
+    [searchParams, router]
+  );
 
-  const applyFilters = useCallback(() => resetSearchParams(filter), [filter]);
+  const applyFilters = useCallback(
+    () => resetSearchParams(filter),
+    [filter, resetSearchParams]
+  );
 
   const clearFilters = () => {
     clearAll();
@@ -68,7 +73,7 @@ const ShopFilters: React.FC<Props> = ({ initFilters }) => {
               label="All Categories"
               name="categories"
               checked={!filter.category}
-              onChange={(e) => setFilter("category", null)}
+              onChange={() => setFilter("category", null)}
             />
           </li>
           {categories.map((cat) => (

@@ -1,3 +1,4 @@
+import ShoppingCartCloseIcon from "@/components/icons/ShoppingCartCloseIcon";
 import NavBar from "@/components/shared/navbar/NavBar";
 import Link from "next/link";
 
@@ -8,7 +9,8 @@ export default function ProductNotFound() {
       <main className="w-full bg-muted flex items-center justify-center">
         <div className="w-full max-w-2xl h-100 bg-white rounded-4xl py-12 px-6 flex justify-center flex-col items-center gap-4">
           <h1 className="text-4xl font-bold">Product Not Found</h1>
-          <p>Sorry, we couldn't find that product.</p>
+          <ShoppingCartCloseIcon className="size-50" />
+          <p>Sorry, we couldn&apos;t find that product.</p>
           <Link
             href="/shop"
             className="bg-accent px-5 py-2 text-white rounded-3xl font-bold"

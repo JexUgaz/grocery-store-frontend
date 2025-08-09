@@ -20,7 +20,11 @@ const ShopSort: React.FC<Props> = ({ sort = "" }) => {
 
   const onChange = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    attrIsEmpty(value) ? params.delete("sort") : params.set("sort", value);
+    if (attrIsEmpty(value)) {
+      params.delete("sort");
+    } else {
+      params.set("sort", value);
+    }
     router.push(`/shop?${params.toString()}`);
   };
 

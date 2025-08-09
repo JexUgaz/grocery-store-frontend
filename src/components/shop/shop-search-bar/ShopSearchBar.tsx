@@ -29,7 +29,7 @@ const ShopSearchBar: React.FC<Props> = ({ query = "" }) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("query", debounceSearch);
     router.push(`/shop?${params.toString()}`);
-  }, [debounceSearch]);
+  }, [debounceSearch, router, searchParams]);
 
   return (
     <div className="relative flex items-center justify-center">
