@@ -5,7 +5,6 @@ import { homeProducts } from "@/data/homeProducts";
 import NavbarSentinelWrapper from "@/components/Home/navbar-wrapper/NavbarSentinelWrapper";
 import NavBar from "@/components/shared/navbar/NavBar";
 import HomeBanner from "@/components/Home/home-banner/HomeBanner";
-export const runtime = "edge";
 
 const Home = () => {
   return (

@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && rimraf .next/cache",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.13.13",
     "clsx": "^2.1.1",
     "cookies-next": "^6.1.0",
     "critters": "^0.0.25",
@@ -31,7 +30,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
-    "rimraf": "^6.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

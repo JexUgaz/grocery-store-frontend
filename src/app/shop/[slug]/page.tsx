@@ -10,7 +10,10 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const runtime = "edge";
+export const generateStaticParams = () =>
+  products.map((p) => ({
+    slug: generateSlug(p.name),
+  }));
 
 const ProductPage = async ({ params }: Props) => {
   const { slug } = await params;

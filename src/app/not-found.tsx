@@ -1,7 +1,6 @@
 import LinkBrokenIcon from "@/components/icons/LinkBrokenIcon";
 import NavBar from "@/components/shared/navbar/NavBar";
 import Link from "next/link";
-export const runtime = "edge";
 
 export default function Custom404() {
   return (

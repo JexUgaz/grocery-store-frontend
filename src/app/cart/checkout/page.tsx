@@ -3,7 +3,6 @@ import NavBar from "@/components/shared/navbar/NavBar";
 import { shoppingCartService } from "@/services";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-export const runtime = "edge";
 
 const CheckoutPage = async () => {
   const cookieStore = await cookies();

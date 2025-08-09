@@ -17,7 +17,6 @@ interface Params extends FilterProps {
 interface Props {
   searchParams: Promise<Params>;
 }
-export const runtime = "edge";
 
 const ShopPage: React.FC<Props> = async ({ searchParams }) => {
   const {

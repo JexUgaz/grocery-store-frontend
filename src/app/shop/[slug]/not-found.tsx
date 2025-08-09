@@ -1,8 +1,6 @@
 import ShoppingCartCloseIcon from "@/components/icons/ShoppingCartCloseIcon";
 import NavBar from "@/components/shared/navbar/NavBar";
 import Link from "next/link";
-export const runtime = "edge";
-
 export default function ProductNotFound() {
   return (
     <>

@@ -12,7 +12,7 @@ const ContentBanner = () => (
       your door.
     </p>
     <Link
-      href="/products"
+      href="/shop"
       className="bg-gradient-to-r from-primary to-lime-500 hover:brightness-110 transition px-6 py-3 rounded-xl
               flex items-center gap-3 text-white font-bold hover:scale-105 hover:animate-lift"
     >
