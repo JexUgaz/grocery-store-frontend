@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const CheckoutButton = () => {
   const router = useRouter();
   const onCheckout = () => {
-    router.push("/checkout");
+    router.push("/cart/checkout");
   };
   return (
     <button

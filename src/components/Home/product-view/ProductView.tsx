@@ -1,5 +1,5 @@
 import { Product } from "@/types/Product";
-import ProductCard from "./components/ProductCard";
+import ProductCard from "@/components/shared/products/product-card/ProductCard";
 import DraggableScroll from "@/components/shared/draggable-scroll/DraggableScroll";
 
 interface Props {

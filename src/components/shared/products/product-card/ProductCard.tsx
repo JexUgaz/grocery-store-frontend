@@ -1,15 +1,15 @@
 import { Product } from "@/types/Product";
-import ButtonAction from "./ButtonAction";
 import Link from "next/link";
 import LinkIcon from "@/components/icons/LinkIcon";
 import Image from "next/image";
+import ButtonAction from "./components/ButtonAction";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard: React.FC<Props> = ({ product }) => {
-  const { name, priceOriginal, priceOffer, currency, quantityInfo, image } =
+  const { name, id, priceOriginal, priceOffer, currency, quantityInfo, image } =
     product;
 
   const formattedPrice = (price: number) =>
@@ -29,7 +29,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         )}
         {image && (
           <Image
-            alt=""
+            alt={`${name} Image`}
             src={image}
             width={280}
             height={200}
@@ -63,7 +63,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         <div className="flex justify-center py-2 gap-1 mx-5">
           <ButtonAction product={product} />
           <Link
-            href="#"
+            href={`/shop/${id}`}
             className="relative group/tooltip bg-secondary text-white p-4 rounded-2xl hover:animate-lift"
           >
             <LinkIcon className="size-5" />

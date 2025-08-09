@@ -5,13 +5,12 @@ import { NavBarData } from "@/types/NavBarData";
 export const navbarItems: NavBarData[] = [
   {
     Icon: HomeIcon,
-    link: "/",
+    link: "/home",
     title: "Home",
   },
   {
     Icon: StoreIcon,
-    // link: "/shop",
-    link: "#",
+    link: "/shop",
     title: "Shop",
   },
 ];

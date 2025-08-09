@@ -2,10 +2,16 @@ import { Category } from "@/types/Category";
 import Image from "next/image";
 import Link from "next/link";
 
-const CategoryCard: React.FC<Category> = ({ title, href, image, color }) => {
+const CategoryCard: React.FC<Category> = ({
+  id,
+  title,
+  href,
+  image,
+  color,
+}) => {
   return (
     <Link
-      href={href}
+      href={`${href}?category=${id}`}
       className={`group relative max-w-[250px] overflow-hidden rounded-3xl ${color}`}
     >
       <Image

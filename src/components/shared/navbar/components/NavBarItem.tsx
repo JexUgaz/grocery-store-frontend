@@ -14,7 +14,7 @@ const NavBarItem: React.FC<Props> = ({
   className = "py-2 px-5",
 }) => {
   const pathName = usePathname();
-  const isActive = pathName === link;
+  const isActive = pathName.includes(link);
 
   const isHome = pathName === "/";
   const extraClass = isHome ? "home-" : "";

@@ -1,11 +1,14 @@
 import React from "react";
 
 interface TextInputProps {
-  label: string;
+  label?: string;
   name: string;
   type?: React.HTMLInputTypeAttribute;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string | null;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  min?: number;
+  max?: number;
   placeholder?: string;
   required?: boolean;
   className?: string;
@@ -17,9 +20,12 @@ const TextInput: React.FC<TextInputProps> = ({
   label,
   name,
   type = "text",
-  value,
+  value = "",
   onChange,
+  onBlur,
   placeholder = "",
+  min,
+  max,
   required = false,
   className = "",
   maxLength,
@@ -28,15 +34,23 @@ const TextInput: React.FC<TextInputProps> = ({
   const showError = error && error?.length > 0;
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      <label htmlFor={name} className="text-base font-semibold text-secondary">
-        {label}
-      </label>
+      {label && (
+        <label
+          htmlFor={name}
+          className="text-base font-semibold text-secondary"
+        >
+          {label}
+        </label>
+      )}
       <input
         id={name}
         type={type}
         name={name}
-        value={value}
+        value={value ?? ""}
+        onBlur={onBlur}
         onChange={onChange}
+        min={min}
+        max={max}
         placeholder={placeholder}
         maxLength={maxLength}
         required={required}

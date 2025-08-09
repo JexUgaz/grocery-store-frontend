@@ -1,6 +1,9 @@
+import { CategoryIds } from "@/data/categories";
+
 export interface Product {
   id: string;
   name: string;
+  categoryId: CategoryIds;
   priceOriginal: number;
   image?: string;
   priceOffer?: number | null;
