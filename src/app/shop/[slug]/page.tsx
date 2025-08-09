@@ -9,7 +9,6 @@ import { generateSlug } from "@/utils";
 interface Props {
   params: Promise<{ slug: string }>;
 }
-export const runtime = "edge";
 
 export const generateStaticParams = () =>
   products.map((p) => ({
