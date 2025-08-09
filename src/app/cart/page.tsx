@@ -3,6 +3,7 @@ import { shoppingCartService } from "@/services";
 import NavBar from "@/components/shared/navbar/NavBar";
 import CartItemsView from "@/components/cart/cart-items-view/CartItemsView";
 import OrderSummary from "@/components/cart/order-summary/OrderSummary";
+export const runtime = "edge";
 
 const CartPage = async () => {
   const cookieStore = await cookies();
