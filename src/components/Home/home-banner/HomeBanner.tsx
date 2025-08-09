@@ -5,7 +5,7 @@ const HomeBanner = () => (
   <div className="relative w-full h-[80vh]">
     <Image
       alt=""
-      src="/images/banner/vegetables.jpg"
+      src="/images/banner/vegetables.webp"
       fill
       className="object-cover"
       priority
