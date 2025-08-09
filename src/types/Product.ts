@@ -5,8 +5,9 @@ export interface Product {
   name: string;
   categoryId: CategoryIds;
   priceOriginal: number;
-  image?: string;
+  images: string[];
   priceOffer?: number | null;
   currency: "USD" | "PEN";
   quantityInfo: string;
+  features?: string[];
 }

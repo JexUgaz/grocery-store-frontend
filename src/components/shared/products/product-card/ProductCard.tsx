@@ -9,21 +9,32 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = ({ product }) => {
-  const { name, id, priceOriginal, priceOffer, currency, quantityInfo, image } =
-    product;
+  const {
+    name,
+    id,
+    priceOriginal,
+    priceOffer,
+    currency,
+    quantityInfo,
+    images,
+  } = product;
+
+  const image = images[0];
 
   const formattedPrice = (price: number) =>
     currency === "USD" ? `$${price.toFixed(2)}` : `S/.${price.toFixed(2)}`;
 
-  const showOffer =
-    typeof priceOffer === "number" && priceOffer < priceOriginal;
+  const showOffer = !!priceOffer;
+  const percentageOffer = Math.round(
+    ((priceOriginal - (priceOffer ?? 0)) / priceOriginal) * 100
+  );
 
   return (
     <div
       className="group cursor-auto w-70 bg-white rounded-3xl overflow-hidden shadow-md transition-transform duration-500 ease-in-out hover:scale-105
             flex flex-col"
     >
-      <div className="h-40 overflow-hidden bg-white flex items-center justify-center">
+      <div className="relative h-40 w-72 overflow-hidden bg-white flex items-center justify-center">
         {!image && (
           <span className="text-gray-500 text-sm">Image Placeholder</span>
         )}
@@ -31,10 +42,15 @@ const ProductCard: React.FC<Props> = ({ product }) => {
           <Image
             alt={`${name} Image`}
             src={image}
-            width={280}
-            height={200}
+            fill
+            sizes="18rem"
             className="object-cover scale-110 group-hover:scale-100 transition-transform duration-500 ease-in-out"
           />
+        )}
+        {showOffer && (
+          <span className="absolute top-2 left-3 bg-red text-white font-bold px-2 rounded-3xl">
+            -{percentageOffer}%
+          </span>
         )}
       </div>
 

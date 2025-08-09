@@ -29,11 +29,6 @@ const Footer = () => (
               Cart
             </Link>
           </li>
-          <li>
-            <Link href="#" className="hover:underline">
-              Contact
-            </Link>
-          </li>
         </ul>
       </div>
 

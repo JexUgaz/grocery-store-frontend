@@ -15,7 +15,7 @@ const CategoryCard: React.FC<Category> = ({
       className={`group relative max-w-[250px] overflow-hidden rounded-3xl ${color}`}
     >
       <Image
-        alt=""
+        alt={`${title} Image`}
         src={image}
         width={250}
         height={250}

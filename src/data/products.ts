@@ -8,7 +8,14 @@ export const products: Product[] = [
     priceOriginal: 2,
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/fruits/oranges.webp",
+    images: [
+      "/images/fruits/oranges.webp",
+      "/images/fruits/oranges/1.webp",
+      "/images/fruits/oranges/2.webp",
+      "/images/fruits/oranges/3.webp",
+      "/images/fruits/oranges/4.webp",
+    ],
+    features: ["Sold by kilogram", "High in vitamin C", "Fresh and juicy"],
   },
   {
     id: "a18ddcd6-1d47-4990-ba25-4636f5f52f1f",
@@ -17,7 +24,8 @@ export const products: Product[] = [
     categoryId: "cleaning-products",
     currency: "USD",
     quantityInfo: "100 wipes",
-    image: "/images/cleaning-products/disinfectant-wipes.webp",
+    images: ["/images/cleaning-products/disinfectant-wipes.webp"],
+    features: ["Kills 99.9% of bacteria", "Fresh scent", "Resealable lid"],
   },
   {
     id: "b256249e-cd38-41b5-ab45-9ce67cd1ba6b",
@@ -27,7 +35,12 @@ export const products: Product[] = [
     priceOffer: 2.5,
     currency: "USD",
     quantityInfo: "350 g jar",
-    image: "/images/pantry-staples/peanut-butter.webp",
+    images: [
+      "/images/pantry-staples/peanut-butter.webp",
+      "/images/pantry-staples/peanut-butter/1.webp",
+      "/images/pantry-staples/peanut-butter/2.webp",
+    ],
+    features: ["100% roasted peanuts", "No preservatives", "Creamy texture"],
   },
   {
     id: "de822fed-8c9a-41de-8357-fd5a779787db",
@@ -36,7 +49,8 @@ export const products: Product[] = [
     categoryId: "vegetables",
     currency: "USD",
     quantityInfo: "head",
-    image: "/images/vegetables/cauliflower.webp",
+    images: ["/images/vegetables/cauliflower.webp"],
+    features: ["Fresh and crisp", "High in fiber", "Rich in antioxidants"],
   },
   {
     id: "5d63e695-9844-4ff1-a76a-80fec9d7404a",
@@ -46,7 +60,8 @@ export const products: Product[] = [
     priceOffer: 2.4,
     currency: "USD",
     quantityInfo: "each",
-    image: "/images/fruits/avocado.webp",
+    images: ["/images/fruits/avocado.webp"],
+    features: ["Creamy texture", "Rich in healthy fats", "Great for salads"],
   },
   {
     id: "320172f0-6da6-457d-9810-a4a117b1345a",
@@ -56,7 +71,8 @@ export const products: Product[] = [
     priceOffer: 3.99,
     currency: "USD",
     quantityInfo: "1 kg bag",
-    image: "/images/pantry-staples/organic-rolled-oats.webp",
+    images: ["/images/pantry-staples/organic-rolled-oats.webp"],
+    features: ["100% organic oats", "High in fiber", "Perfect for breakfast"],
   },
   {
     id: "278afe14-0254-47cb-a378-3ee5db51b47a",
@@ -65,7 +81,8 @@ export const products: Product[] = [
     priceOriginal: 3.2,
     currency: "USD",
     quantityInfo: "500 ml bottle",
-    image: "/images/cleaning-products/glass-cleaner.webp",
+    images: ["/images/cleaning-products/glass-cleaner.webp"],
+    features: ["Streak-free shine", "Fast-drying formula", "Pleasant scent"],
   },
   {
     id: "71f04931-c1d3-4a87-9ce1-b09998619129",
@@ -75,7 +92,8 @@ export const products: Product[] = [
     priceOffer: 2.99,
     currency: "USD",
     quantityInfo: "each",
-    image: "/images/fruits/pineapple.webp",
+    images: ["/images/fruits/pineapple.webp"],
+    features: ["Sweet and juicy", "Rich in vitamin C", "Tropical flavor"],
   },
   {
     id: "1a6c8aa4-7dd0-4cd6-a517-9c9a2b944378",
@@ -84,7 +102,8 @@ export const products: Product[] = [
     priceOriginal: 1.2,
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/fruits/bananas.webp",
+    images: ["/images/fruits/bananas.webp"],
+    features: ["Naturally sweet", "Good source of potassium", "Perfect snack"],
   },
   {
     id: "5133b4b8-ff18-4a2a-80b2-139b04140d42",
@@ -93,8 +112,10 @@ export const products: Product[] = [
     priceOriginal: 1.6,
     currency: "USD",
     quantityInfo: "160 g can",
-    image: "/images/pantry-staples/canned-tuna.webp",
+    images: ["/images/pantry-staples/canned-tuna.webp"],
+    features: ["High in protein", "Low fat", "Ready to eat"],
   },
+
   {
     id: "9fa43a91-8eea-44b8-ac74-123ff82dabd7",
     name: "Dishwashing Liquid",
@@ -103,7 +124,12 @@ export const products: Product[] = [
     priceOffer: 2,
     currency: "USD",
     quantityInfo: "750 ml bottle",
-    image: "/images/cleaning-products/dishwashing-liquid.webp",
+    images: ["/images/cleaning-products/dishwashing-liquid.webp"],
+    features: [
+      "Effective grease remover",
+      "Gentle on hands",
+      "Biodegradable formula",
+    ],
   },
   {
     id: "0fd54176-1336-49f7-8e8f-cdc95999760b",
@@ -113,7 +139,12 @@ export const products: Product[] = [
     currency: "USD",
     categoryId: "vegetables",
     quantityInfo: "250 g pack",
-    image: "/images/vegetables/spinach.webp",
+    images: ["/images/vegetables/spinach.webp"],
+    features: [
+      "Fresh and organic",
+      "Rich in iron and vitamins",
+      "Ideal for salads and smoothies",
+    ],
   },
   {
     id: "6edd6295-3ddf-45d3-bca0-ec7b1fd6af2e",
@@ -122,7 +153,12 @@ export const products: Product[] = [
     priceOriginal: 1.2,
     currency: "USD",
     quantityInfo: "bunch (≈ 500 g)",
-    image: "/images/vegetables/carrots.webp",
+    images: ["/images/vegetables/carrots.webp"],
+    features: [
+      "Crunchy and sweet",
+      "Great source of beta-carotene",
+      "Perfect for cooking or snacking",
+    ],
   },
   {
     id: "b88a9a05-0dd8-4cd9-a394-cc6128ee9089",
@@ -132,7 +168,12 @@ export const products: Product[] = [
     priceOffer: 2.25,
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/vegetables/tomatoes.webp",
+    images: ["/images/vegetables/tomatoes.webp"],
+    features: [
+      "Vine-ripened for better flavor",
+      "Juicy and fresh",
+      "Excellent for sauces and salads",
+    ],
   },
   {
     id: "897eea9d-bf5b-445c-b80d-e01bddacf997",
@@ -142,7 +183,12 @@ export const products: Product[] = [
     priceOffer: 1.99,
     currency: "USD",
     quantityInfo: "1 kg bag",
-    image: "/images/pantry-staples/all-purpose-flour.webp",
+    images: ["/images/pantry-staples/all-purpose-flour.webp"],
+    features: [
+      "Fine milled",
+      "Suitable for baking and cooking",
+      "Enriched with vitamins",
+    ],
   },
   {
     id: "772acd0a-8659-46f9-9c94-40ee26e6b6f4",
@@ -152,7 +198,12 @@ export const products: Product[] = [
     priceOffer: 2.88,
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/fruits/grapes.webp",
+    images: ["/images/fruits/grapes.webp"],
+    features: [
+      "Seedless for convenience",
+      "Sweet and juicy",
+      "Rich in antioxidants",
+    ],
   },
   {
     id: "00f6d8bd-4324-43bc-9d82-2a9c4ac47f14",
@@ -162,7 +213,12 @@ export const products: Product[] = [
     priceOffer: 1.5,
     currency: "USD",
     quantityInfo: "1 L bottle",
-    image: "/images/cleaning-products/bleach.webp",
+    images: ["/images/cleaning-products/bleach.webp"],
+    features: [
+      "Powerful disinfectant",
+      "Removes tough stains",
+      "Suitable for household use",
+    ],
   },
   {
     id: "9123b9a5-3c5a-40e8-acf7-3e4a63069b83",
@@ -172,7 +228,12 @@ export const products: Product[] = [
     categoryId: "pantry-staples",
     currency: "USD",
     quantityInfo: "400 g jar",
-    image: "/images/pantry-staples/tomato-sauce.webp",
+    images: ["/images/pantry-staples/tomato-sauce.webp"],
+    features: [
+      "Rich tomato flavor",
+      "No added preservatives",
+      "Perfect for pasta and pizza",
+    ],
   },
   {
     id: "ddaffe37-f411-4f50-a8c0-a61c07ba16cc",
@@ -182,7 +243,12 @@ export const products: Product[] = [
     priceOffer: 2,
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/fruits/apples.webp",
+    images: ["/images/fruits/apples.webp"],
+    features: [
+      "Crisp and sweet",
+      "Good source of fiber",
+      "Ideal for snacks and baking",
+    ],
   },
   {
     id: "403ee128-535d-49fd-b4cb-744942a1e673",
@@ -191,7 +257,12 @@ export const products: Product[] = [
     categoryId: "vegetables",
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/vegetables/zucchini.webp",
+    images: ["/images/vegetables/zucchini.webp"],
+    features: [
+      "Fresh and firm",
+      "Low calorie vegetable",
+      "Great for grilling and roasting",
+    ],
   },
   {
     id: "a6fd215e-da64-4fa6-9245-faeec475c6fe",
@@ -201,7 +272,8 @@ export const products: Product[] = [
     priceOffer: 2.5,
     currency: "USD",
     quantityInfo: "750 ml bottle",
-    image: "/images/cleaning-products/toilet-cleaner.webp",
+    images: ["/images/cleaning-products/toilet-cleaner.webp"],
+    features: ["Powerful stain remover", "Fresh scent", "Kills 99.9% of germs"],
   },
   {
     id: "78d0ba54-8ae3-42e3-91a7-469290950ea3",
@@ -210,7 +282,12 @@ export const products: Product[] = [
     priceOriginal: 1.8,
     currency: "USD",
     quantityInfo: "each",
-    image: "/images/fruits/mango.webp",
+    images: ["/images/fruits/mango.webp"],
+    features: [
+      "Sweet and juicy",
+      "Rich in vitamins A and C",
+      "Perfect for smoothies and desserts",
+    ],
   },
   {
     id: "80264cce-ca83-4382-b915-0ef06bef9721",
@@ -220,7 +297,12 @@ export const products: Product[] = [
     priceOffer: 0.66,
     currency: "USD",
     quantityInfo: "10 cubes (≈ 100 g)",
-    image: "/images/pantry-staples/vegetable-stock-cube.webp",
+    images: ["/images/pantry-staples/vegetable-stock-cube.webp"],
+    features: [
+      "Adds rich vegetable flavor",
+      "Easy to dissolve",
+      "Ideal for soups and stews",
+    ],
   },
   {
     id: "5b3a6710-9b21-4636-8779-8ec796cd19d3",
@@ -229,7 +311,12 @@ export const products: Product[] = [
     priceOriginal: 2.2,
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/fruits/kiwi.webp",
+    images: ["/images/fruits/kiwi.webp"],
+    features: [
+      "Tangy and sweet taste",
+      "High in vitamin C",
+      "Great for snacks and salads",
+    ],
   },
   {
     id: "81538300-9ed7-414a-bbeb-82bd151e56f4",
@@ -238,7 +325,12 @@ export const products: Product[] = [
     priceOriginal: 0.5,
     currency: "USD",
     quantityInfo: "500 g pack",
-    image: "/images/pantry-staples/salt-iodized.webp",
+    images: ["/images/pantry-staples/salt-iodized.webp"],
+    features: [
+      "Essential seasoning",
+      "Contains iodine for thyroid health",
+      "Fine granules",
+    ],
   },
   {
     id: "2fee9b2c-dfa9-4f4e-84fc-a1e21902c0b9",
@@ -248,7 +340,12 @@ export const products: Product[] = [
     priceOffer: 3.2,
     currency: "USD",
     quantityInfo: "1 L bottle",
-    image: "/images/cleaning-products/fabric-softener.webp",
+    images: ["/images/cleaning-products/fabric-softener.webp"],
+    features: [
+      "Softens and freshens fabrics",
+      "Long-lasting fragrance",
+      "Reduces static cling",
+    ],
   },
   {
     id: "2c08449b-b5fc-4eae-b95b-0d6f097ea4254",
@@ -258,7 +355,8 @@ export const products: Product[] = [
     priceOffer: 3.5,
     currency: "USD",
     quantityInfo: "250 g punnet",
-    image: "/images/fruits/strawberries.webp",
+    images: ["/images/fruits/strawberries.webp"],
+    features: ["Sweet and ripe", "Locally sourced", "Rich in antioxidants"],
   },
   {
     id: "05612bce-8bf0-4086-a1f1-c19b92313a8a",
@@ -268,7 +366,12 @@ export const products: Product[] = [
     priceOffer: 1.35,
     currency: "USD",
     quantityInfo: "head",
-    image: "/images/vegetables/lettuce.webp",
+    images: ["/images/vegetables/lettuce.webp"],
+    features: [
+      "Crisp and fresh",
+      "Ideal for salads",
+      "Rich in fiber and vitamins",
+    ],
   },
   {
     id: "11039c11-c15c-4e68-8bb5-2b0f675d27c1",
@@ -278,7 +381,12 @@ export const products: Product[] = [
     priceOffer: 3.99,
     currency: "USD",
     quantityInfo: "125 g punnet",
-    image: "/images/fruits/blueberries.webp",
+    images: ["/images/fruits/blueberries.webp"],
+    features: [
+      "Organic and fresh",
+      "High in antioxidants",
+      "Great for smoothies and baking",
+    ],
   },
   {
     id: "bf3e70a4-5bd9-4e98-aac1-79fc60461053",
@@ -288,7 +396,12 @@ export const products: Product[] = [
     priceOffer: 1.2,
     currency: "USD",
     quantityInfo: "pack of 6",
-    image: "/images/cleaning-products/sponges.webp",
+    images: ["/images/cleaning-products/sponges.webp"],
+    features: [
+      "Durable and absorbent",
+      "Multi-purpose cleaning",
+      "Ideal for kitchen and bathroom",
+    ],
   },
   {
     id: "39fb737b-7ecc-4b41-9c44-2bf2f9856fc3",
@@ -297,7 +410,12 @@ export const products: Product[] = [
     categoryId: "vegetables",
     currency: "USD",
     quantityInfo: "each",
-    image: "/images/vegetables/cucumber.webp",
+    images: ["/images/vegetables/cucumber.webp"],
+    features: [
+      "Fresh and crunchy",
+      "Hydrating vegetable",
+      "Great for salads and snacks",
+    ],
   },
   {
     id: "d8e84d33-ba9a-4ec6-80e0-56cfa7d9cd39",
@@ -307,7 +425,12 @@ export const products: Product[] = [
     priceOffer: 1.5,
     currency: "USD",
     quantityInfo: "head (≈ 300 g)",
-    image: "/images/vegetables/broccoli.webp",
+    images: ["/images/vegetables/broccoli.webp"],
+    features: [
+      "Rich in vitamins and fiber",
+      "Fresh and firm head",
+      "Perfect for steaming and stir-fry",
+    ],
   },
   {
     id: "c9aea5b3-a811-4efd-8d46-a99889f815db",
@@ -316,7 +439,12 @@ export const products: Product[] = [
     currency: "USD",
     categoryId: "vegetables",
     quantityInfo: "each ear",
-    image: "/images/vegetables/sweet-corn.webp",
+    images: ["/images/vegetables/sweet-corn.webp"],
+    features: [
+      "Rich in vitamins and fiber",
+      "Fresh and firm head",
+      "Perfect for steaming and stir-fry",
+    ],
   },
   {
     id: "0216083c-dd92-4aef-8df4-89201396bc4e",
@@ -326,7 +454,12 @@ export const products: Product[] = [
     priceOffer: 3.3,
     currency: "USD",
     quantityInfo: "500 ml bottle",
-    image: "/images/cleaning-products/all-purpose-cleaner.webp",
+    images: ["/images/cleaning-products/all-purpose-cleaner.webp"],
+    features: [
+      "Effective on multiple surfaces",
+      "Leaves a fresh scent",
+      "Non-toxic formula",
+    ],
   },
   {
     id: "955e9002-b779-4212-940f-f638d483465c",
@@ -336,7 +469,12 @@ export const products: Product[] = [
     priceOffer: 4.25,
     currency: "USD",
     quantityInfo: "1 kg pack",
-    image: "/images/cleaning-products/laundry-detergent.webp",
+    images: ["/images/cleaning-products/laundry-detergent.webp"],
+    features: [
+      "Powerful stain removal",
+      "Suitable for all fabric types",
+      "Fresh fragrance",
+    ],
   },
   {
     id: "9470bcad-e65f-4909-b274-dd9c48a06eea",
@@ -345,7 +483,12 @@ export const products: Product[] = [
     priceOriginal: 2,
     currency: "USD",
     quantityInfo: "300 ml can",
-    image: "/images/cleaning-products/air-freshener-spray.webp",
+    images: ["/images/cleaning-products/air-freshener-spray.webp"],
+    features: [
+      "Neutralizes odors",
+      "Long-lasting fragrance",
+      "Easy to use spray",
+    ],
   },
   {
     id: "15061446-0be2-4203-821a-2a1cd631b4a7",
@@ -355,7 +498,12 @@ export const products: Product[] = [
     priceOffer: 1.99,
     currency: "USD",
     quantityInfo: "500 g pack",
-    image: "/images/pantry-staples/red-lentils.webp",
+    images: ["/images/pantry-staples/red-lentils.webp"],
+    features: [
+      "High protein content",
+      "Quick cooking time",
+      "Great for soups and stews",
+    ],
   },
   {
     id: "2486d5f1-5c54-41fc-ab29-cad49587624f",
@@ -364,7 +512,12 @@ export const products: Product[] = [
     priceOriginal: 3.8,
     currency: "USD",
     quantityInfo: "1 kg bag",
-    image: "/images/pantry-staples/rice.webp",
+    images: ["/images/pantry-staples/rice.webp"],
+    features: [
+      "Long grain quality",
+      "Versatile staple food",
+      "Ideal for daily meals",
+    ],
   },
   {
     id: "57a0b5e8-27ea-4bfb-acd4-9aae40afd736",
@@ -374,7 +527,12 @@ export const products: Product[] = [
     categoryId: "vegetables",
     currency: "USD",
     quantityInfo: "per kg",
-    image: "/images/vegetables/bell-peppers.webp",
+    images: ["/images/vegetables/bell-peppers.webp"],
+    features: [
+      "Colorful and fresh",
+      "Rich in vitamins A and C",
+      "Perfect for salads and cooking",
+    ],
   },
   {
     id: "7db668bd-a45c-4032-87bf-bf39e72ba615",
@@ -383,6 +541,11 @@ export const products: Product[] = [
     priceOriginal: 1.8,
     currency: "USD",
     quantityInfo: "500 g pack",
-    image: "/images/pantry-staples/pasta-fusilli.webp",
+    images: ["/images/pantry-staples/pasta-fusilli.webp"],
+    features: [
+      "Durable pasta shape",
+      "Ideal for pasta salads and sauces",
+      "Quick cooking time",
+    ],
   },
 ];
