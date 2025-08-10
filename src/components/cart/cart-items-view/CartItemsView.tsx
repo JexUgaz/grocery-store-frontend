@@ -15,7 +15,7 @@ const CartItemsView: React.FC<Props> = ({ items }) => {
         Your Shopping Cart{" "}
         {!cartEmpty && (
           <span className="text-sm sm:text-base">
-            ({totalItems} producto{totalItems === 1 ? "" : "s"})
+            ({totalItems} product{totalItems === 1 ? "" : "s"})
           </span>
         )}
       </h1>
