@@ -24,7 +24,7 @@ const ProductCardSkeleton = () => {
 
 const ProductsSkeleton = () => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+    <div className="w-full flex justify-center flex-wrap gap-x-3 gap-y-8">
       {Array.from({ length: 8 }).map((_, i) => (
         <ProductCardSkeleton key={i} />
       ))}

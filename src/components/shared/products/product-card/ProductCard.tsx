@@ -3,13 +3,15 @@ import Link from "next/link";
 import LinkIcon from "@/components/icons/LinkIcon";
 import Image from "next/image";
 import ButtonAction from "./components/ButtonAction";
-import { generateSlug } from "@/utils";
+import { cn, generateSlug } from "@/utils";
+import { ClassValue } from "clsx";
 
 interface Props {
+  width?: ClassValue;
   product: Product;
 }
 
-const ProductCard: React.FC<Props> = ({ product }) => {
+const ProductCard: React.FC<Props> = ({ product, width = "w-70" }) => {
   const { name, priceOriginal, priceOffer, currency, quantityInfo, images } =
     product;
 
@@ -26,10 +28,12 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div
-      className="group cursor-auto w-70 bg-white rounded-3xl overflow-hidden shadow-md transition-transform duration-500 ease-in-out hover:scale-105
-            flex flex-col"
+      className={cn(
+        "group cursor-auto bg-white rounded-3xl overflow-hidden shadow-md transition-transform duration-500 ease-in-out hover:scale-105 flex flex-col",
+        width
+      )}
     >
-      <div className="relative h-40 w-72 overflow-hidden bg-white flex items-center justify-center">
+      <div className="relative h-40 w-full overflow-hidden bg-white flex items-center justify-center">
         {!image && (
           <span className="text-gray-500 text-sm">Image Placeholder</span>
         )}
@@ -38,7 +42,6 @@ const ProductCard: React.FC<Props> = ({ product }) => {
             alt={`${name} Image`}
             src={image}
             fill
-            sizes="18rem"
             className="object-cover scale-110 group-hover:scale-100 transition-transform duration-500 ease-in-out"
           />
         )}

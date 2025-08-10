@@ -10,16 +10,16 @@ const CartItemsView: React.FC<Props> = ({ items }) => {
   const cartEmpty = items.length === 0;
 
   return (
-    <div className="w-full max-w-3xl">
-      <h1 className="ms-6 mb-8 text-3xl font-bold text-secondary flex justify-between items-end">
+    <div className="w-full sm:w-[90%] lg:w-[50%] xl:w-auto xl:max-w-2xl 2xl:max-w-3xl">
+      <h1 className="sm:ms-6 mb-8 text-2xl sm:text-3xl font-bold text-secondary flex flex-col xs:flex-row justify-between items-center xs:items-end">
         Your Shopping Cart{" "}
         {!cartEmpty && (
-          <span className="text-base">
+          <span className="text-sm sm:text-base">
             ({totalItems} producto{totalItems === 1 ? "" : "s"})
           </span>
         )}
       </h1>
-      <div className="bg-white rounded-4xl py-10 px-14">
+      <div className="overflow-hidden bg-white rounded-2xl sm:rounded-4xl py-5 2xl:py-10 lg:px-0 2xl:px-14">
         {cartEmpty && <EmptyCartMessage />}
         {!cartEmpty && (
           <ul className="space-y-6">

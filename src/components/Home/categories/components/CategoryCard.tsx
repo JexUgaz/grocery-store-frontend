@@ -12,7 +12,7 @@ const CategoryCard: React.FC<Category> = ({
   return (
     <Link
       href={`${href}?category=${id}`}
-      className={`group relative max-w-[250px] overflow-hidden rounded-3xl ${color}`}
+      className={`w-60 lg:w-auto group relative max-w-[250px] overflow-hidden rounded-3xl ${color}`}
     >
       <Image
         alt={`${title} Image`}
@@ -21,8 +21,8 @@ const CategoryCard: React.FC<Category> = ({
         height={250}
         className="object-cover transition-transform duration-400 scale-110 group-hover:scale-100"
       />
-      <span className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-secondary/50 to-transparent group-hover:from-black" />
-      <span className="absolute bottom-5 left-[50%] -translate-x-[50%] text-white text-xl font-bold text-center group-hover:animate-lift">
+      <span className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-secondary to-transparent group-hover:from-black" />
+      <span className="absolute bottom-5 left-[50%] -translate-x-[50%] text-white text-base lg:text-xl font-bold text-center group-hover:animate-lift">
         {title}
       </span>
     </Link>

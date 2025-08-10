@@ -33,7 +33,7 @@ const DetailsButtonAdd: React.FC<Props> = ({ cartItem, product }) => {
         </button>
       )}
       {productInCart && (
-        <div className="me-auto mt-10 w-30">
+        <div className="mx-auto mt-10 w-30">
           <QuantityControl product={product} quantity={cartItem.quantity} />
           <p className="text-center text-xs font-semibold mt-1">
             Max. 10 units

@@ -22,7 +22,7 @@ const IconButton: React.FC<Props> = ({
     {...props}
     type="button"
     className={cn(
-      "flex justify-center items-center gap-1 text-sm font-semibold py-2 rounded-2xl transition-all duration-300",
+      "flex justify-center items-center gap-1 text-sm font-semibold py-2 px-6 lg:px-0 rounded-2xl transition-all duration-300",
       bgColorClass,
       textColorClass,
       widthClass,

@@ -1,6 +1,7 @@
 import { CartItem } from "@/types/CartItem";
 import DiscountsSummary from "./components/DiscountsSummary";
 import CheckoutButton from "./components/CheckoutButton";
+import OrderSummaryMobile from "./components/OrderSummaryMobile";
 
 interface Props {
   items: CartItem[];
@@ -31,35 +32,44 @@ const OrderSummary: React.FC<Props> = ({ items }) => {
   const totalPrice = totalOriginalPrice - totalDiscount;
 
   return (
-    <div className="w-full max-w-lg">
-      <h1 className="ms-6 mb-8 text-3xl font-bold text-secondary">
-        Order Summary
-      </h1>
-      <div className="flex flex-col bg-white rounded-4xl py-10 px-14 gap-8 shadow-lg">
-        <div className="flex flex-col gap-4">
-          <div className="flex justify-between text-secondary font-semibold text-base">
-            <p>Products ({totalItems})</p>
-            <p>$ {totalOriginalPrice.toFixed(2)}</p>
+    <>
+      <div className="hidden lg:block w-[40%] xl:w-full xl:max-w-lg">
+        <h1 className="ms-6 mb-8 text-3xl font-bold text-secondary">
+          Order Summary
+        </h1>
+        <div className="flex flex-col bg-white rounded-4xl py-10 px-14 gap-8 shadow-lg">
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-between text-secondary font-semibold text-base">
+              <p>Products ({totalItems})</p>
+              <p>$ {totalOriginalPrice.toFixed(2)}</p>
+            </div>
+
+            <span className="w-full h-[1px] bg-secondary opacity-20"></span>
+
+            <DiscountsSummary
+              discounts={discounts}
+              totalDiscount={totalDiscount}
+            />
+
+            <span className="w-full h-[1px] bg-secondary opacity-20"></span>
+
+            <div className="flex justify-between text-secondary font-bold text-lg">
+              <p>Total</p>
+              <p>$ {totalPrice.toFixed(2)}</p>
+            </div>
           </div>
 
-          <span className="w-full h-[1px] bg-secondary opacity-20"></span>
-
-          <DiscountsSummary
-            discounts={discounts}
-            totalDiscount={totalDiscount}
-          />
-
-          <span className="w-full h-[1px] bg-secondary opacity-20"></span>
-
-          <div className="flex justify-between text-secondary font-bold text-lg">
-            <p>Total</p>
-            <p>$ {totalPrice.toFixed(2)}</p>
-          </div>
+          <CheckoutButton />
         </div>
-
-        <CheckoutButton />
       </div>
-    </div>
+      <OrderSummaryMobile
+        totalPrice={totalPrice}
+        discounts={discounts}
+        totalDiscount={totalDiscount}
+        totalItems={totalItems}
+        totalOriginalPrice={totalOriginalPrice}
+      />
+    </>
   );
 };
 

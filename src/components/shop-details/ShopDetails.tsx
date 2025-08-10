@@ -25,29 +25,41 @@ const ShopDetails: React.FC<Props> = ({ cartItem, product }) => {
   const showPriceOffer = !!priceOffer && priceOffer < priceOriginal;
 
   return (
-    <div className="text-lg flex gap-8 bg-white rounded-5xl p-6">
+    <div className="text-lg flex flex-col lg:flex-row gap-4 sm:gap-2 lg:gap-8 bg-white rounded-5xl p-6 sm:w-[90%] md:w-[80%] lg:w-auto">
+      <div className="flex lg:hidden gap-1 flex-col">
+        <h1 className="text-3xl xs:text-4xl font-bold line-clamp-2">{name}</h1>
+        <span className="font-bold text-sm xs:text-base text-gray-600 italic">
+          {quantityInfo}
+        </span>
+        <p className="text-lg text-gray-500 mb-4">{category?.title}</p>
+      </div>
       <ImageView images={images} name={name} />
 
-      <div className="min-w-md max-w-xl">
-        <h1 className="text-4xl font-bold line-clamp-2">{name}</h1>
-        <p className="text-gray-500 mb-4">{category?.title}</p>
+      <div className="lg:min-w-sm xl:min-w-md lg:max-w-xl">
+        <h1 className="hidden lg:block text-4xl font-bold line-clamp-2">
+          {name}
+        </h1>
+        <span className="hidden lg:block font-bold text-base text-gray-600 italic">
+          {quantityInfo}
+        </span>
+        <p className="hidden lg:block text-gray-500 mb-4">{category?.title}</p>
 
         <div className="flex items-center gap-2">
           {showPriceOffer ? (
             <PriceOfferLabel
               priceOffer={priceOffer!}
               priceOriginal={priceOriginal}
+              priceOfferClass="text-2xl xs:text-3xl font-bold"
+              priceOriginalClass="text-base xs:text-lg"
             />
           ) : (
-            <span className="text-xl text-secondary">
+            <span className="text-2xl xs:text-3xl text-secondary font-bold">
               $ {priceOriginal.toFixed(2)}
             </span>
           )}
         </div>
+        <p className="text-lg font-semibold">Online Price</p>
 
-        <div className="mt-4 text-base text-gray-600 italic">
-          <p>{quantityInfo}</p>
-        </div>
         <div className="text-secondary flex flex-col mt-5 gap-2">
           <h3 className="font-semibold border-b-2 border-b-secondary/80">
             Main features

@@ -10,7 +10,7 @@ const HomeBanner = () => (
       className="object-cover"
       priority
     />
-    <span className="absolute inset-0 bg-gradient-to-r from-black to-transparent z-10" />
+    <span className="absolute inset-0 bg-black/65 sm:bg-transparent sm:bg-gradient-to-r sm:from-black sm:to-transparent z-10" />
     <ContentBanner />
   </div>
 );

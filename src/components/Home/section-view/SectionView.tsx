@@ -10,9 +10,9 @@ const SectionView: React.FC<Props> = ({
   className = "gap-8 text-accent",
 }) => (
   <div
-    className={`w-full overflow-x-hidden flex flex-col items-start justify-center ${className}`}
+    className={`w-full overflow-x-hidden flex flex-col items-center sm:items-start justify-center ${className}`}
   >
-    <h2 className="text-2xl font-extrabold">{title}</h2>
+    <h2 className="sm:ml-20 lg:ml-0 text-2xl font-extrabold">{title}</h2>
     {children}
   </div>
 );

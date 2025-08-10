@@ -8,7 +8,7 @@ interface Props {
 const ContactButton: React.FC<Props> = ({ Icon, iconSize, label, link }) => (
   <a className="text-xs flex gap-1 items-center" href={link} target="_blank">
     <Icon className={iconSize} />
-    {label}
+    <span className="hidden sm:block">{label}</span>
   </a>
 );
 

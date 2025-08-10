@@ -22,7 +22,7 @@ const Home = () => {
         <HomeBanner />
         <div id="after-banner-sentinel" className="h-[1px]"></div>
       </NavbarSentinelWrapper>
-      <section className="my-10 py-10 px-20 flex flex-col bg-white w-full rounded-5xl gap-20">
+      <section className="my-10 py-10 lg:px-10 2xl:px-20 flex flex-col bg-white w-full rounded-5xl gap-20">
         <SectionView title="Popular Categories">
           <CategoriesView />
         </SectionView>

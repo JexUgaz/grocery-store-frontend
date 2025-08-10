@@ -1,5 +1,4 @@
 import { products } from "@/data/products";
-import NavBar from "@/components/shared/navbar/NavBar";
 import { notFound } from "next/navigation";
 import ShopDetails from "@/components/shop-details/ShopDetails";
 import { shoppingCartService } from "@/services";
@@ -27,12 +26,9 @@ const ProductPage = async ({ params }: Props) => {
   const cartItem = data.find((i) => i.product.id === product.id);
 
   return (
-    <>
-      <NavBar />
-      <main className="py-12 px-6 mx-auto">
-        <ShopDetails cartItem={cartItem} product={product} />
-      </main>
-    </>
+    <main className="py-12 px-0 xs:px-6 w-full flex items-center justify-center lg:w-auto lg:mx-auto">
+      <ShopDetails cartItem={cartItem} product={product} />
+    </main>
   );
 };
 

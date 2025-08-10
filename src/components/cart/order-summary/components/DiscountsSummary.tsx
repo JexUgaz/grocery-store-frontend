@@ -18,12 +18,12 @@ const DiscountsSummary: React.FC<Props> = ({ discounts, totalDiscount }) => {
   return (
     <div className="flex flex-col">
       <button
-        className="flex justify-between items-center text-secondary font-semibold text-base cursor-pointer"
+        className="flex justify-between items-center text-secondary font-semibold cursor-pointer"
         onClick={() => setShowDiscountDetails((prev) => !prev)}
       >
-        <p>Discounts</p>
+        <p className="text-sm lg:text-base">Discounts</p>
         <div className="flex items-center gap-2 text-secondary">
-          <p className="text-accent font-bold">
+          <p className="text-accent font-bold text-base">
             - $ {totalDiscount.toFixed(2)}
           </p>
           <ArrowIcon

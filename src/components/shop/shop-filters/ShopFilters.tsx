@@ -13,12 +13,14 @@ import {
 import { useCallback } from "react";
 import FilterButtons from "./components/FilterButtons";
 import FiltersIcon from "@/components/icons/FiltersIcon";
+import ArrowIcon from "@/components/icons/ArrowIcon";
 
 interface Props {
+  className?: string;
   initFilters: FilterProps;
 }
 
-const ShopFilters: React.FC<Props> = ({ initFilters }) => {
+const ShopFilters: React.FC<Props> = ({ initFilters, className }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initEmpty = Object.values(initFilters).every(attrIsEmpty);
@@ -60,14 +62,22 @@ const ShopFilters: React.FC<Props> = ({ initFilters }) => {
   };
 
   return (
-    <div className="flex flex-col bg-white p-5 rounded-4xl">
-      <h2 className="flex items-center justify-center text-xl gap-1 font-bold mb-3">
-        <FiltersIcon className="size-5" />
-        Filter Options{" "}
-      </h2>
+    <details
+      open
+      className="group w-full flex flex-col justify-center rounded-4xl bg-white p-5"
+    >
+      <summary className="list-none cursor-pointer relative">
+        <h2 className="flex items-center justify-center text-xl gap-1 font-bold group-open:mb-3">
+          <FiltersIcon className="size-5" />
+          Filter Options{" "}
+        </h2>
+        <span className="absolute right-0 top-[50%] -translate-y-[50%]">
+          <ArrowIcon className="size-5 xl:size-3 rotate-180 group-open:rotate-0 transition-transform duration-300 ease-out" />
+        </span>
+      </summary>
       <div className="flex flex-col gap-2 mb-5">
         <h3 className="font-bold text-lg text-secondary"> Categories</h3>
-        <ul className="flex flex-col space-y-1 text-base">
+        <ul className="flex lg:flex-col lg:space-y-1 gap-5 lg:gap-0 flex-wrap lg:flex-nowrap text-base">
           <li>
             <CheckboxInput
               label="All Categories"
@@ -137,7 +147,7 @@ const ShopFilters: React.FC<Props> = ({ initFilters }) => {
         onClear={clearFilters}
         onReset={reset}
       />
-    </div>
+    </details>
   );
 };
 

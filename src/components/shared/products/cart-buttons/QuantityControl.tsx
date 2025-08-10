@@ -32,7 +32,7 @@ const QuantityControl: React.FC<Props> = ({ quantity, product }) => {
     <div className="flex justify-between items-center gap-3">
       <button
         onClick={onDecrease}
-        className="bg-secondary text-white size-8 flex items-center justify-center rounded-lg"
+        className="bg-secondary text-white size-6 xl:size-8 flex items-center justify-center rounded-lg"
       >
         {toDelete ? <TrashIcon className="size-5" /> : "-"}
       </button>
@@ -40,7 +40,7 @@ const QuantityControl: React.FC<Props> = ({ quantity, product }) => {
       <button
         onClick={onAdd}
         disabled={btnAddIsDisabled}
-        className="bg-secondary text-white size-8 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="bg-secondary text-white size-6 xl:size-8 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         +
       </button>

@@ -1,5 +1,4 @@
 import CheckoutView from "@/components/checkout/checkout-view/CheckoutView";
-import NavBar from "@/components/shared/navbar/NavBar";
 import { shoppingCartService } from "@/services";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -16,12 +15,9 @@ const CheckoutPage = async () => {
   );
 
   return (
-    <>
-      <NavBar />
-      <main className="w-full bg-muted py-12 px-6 flex justify-center">
-        <CheckoutView totalAmount={totalAmount} />
-      </main>
-    </>
+    <main className="w-full bg-muted py-12 px-6 flex justify-center">
+      <CheckoutView totalAmount={totalAmount} />
+    </main>
   );
 };
 

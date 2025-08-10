@@ -65,21 +65,27 @@ const DraggableScroll: React.FC<Props> = ({ children }) => {
       </div>
 
       {showPrev && (
-        <button
-          onClick={onPrevButton}
-          className="hidden absolute left-0 top-1/2 -translate-y-1/2 bg-secondary rounded-r-3xl text-white group-hover/draggable:flex items-center justify-start px-3 py-8"
-        >
-          <ArrowIcon className="size-10 -rotate-90" />
-        </button>
+        <>
+          <span className="absolute left-0 top-[50%] -translate-y-[50%] h-[95%] bg-gradient-to-r from-black/20 to-transparent w-20 hidden sm:block lg:hidden group-hover/draggable:block"></span>
+          <button
+            onClick={onPrevButton}
+            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 bg-secondary rounded-2xl text-white lg:hidden group-hover/draggable:flex items-center justify-start p-3"
+          >
+            <ArrowIcon className="size-8 -rotate-90" />
+          </button>
+        </>
       )}
 
       {showNext && (
-        <button
-          onClick={onNextButton}
-          className="hidden absolute right-0 top-1/2 -translate-y-1/2 bg-secondary rounded-l-3xl text-white group-hover/draggable:flex items-center justify-end px-3 py-8"
-        >
-          <ArrowIcon className="size-10 rotate-90" />
-        </button>
+        <>
+          <span className="absolute right-0 top-[50%] -translate-y-[50%] h-[95%] bg-gradient-to-l from-black/20 to-transparent w-20 hidden sm:block lg:hidden group-hover/draggable:block"></span>
+          <button
+            onClick={onNextButton}
+            className="absolute hidden sm:flex lg:hidden group-hover/draggable:flex right-0 top-1/2 -translate-y-1/2 bg-secondary rounded-2xl text-white items-center justify-end p-3"
+          >
+            <ArrowIcon className="size-8 rotate-90" />
+          </button>
+        </>
       )}
     </div>
   );

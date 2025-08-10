@@ -5,10 +5,10 @@ interface Props {
 }
 
 const EmptyResult: React.FC<Props> = ({ query }) => (
-  <div className="w-280 h-full flex flex-col items-center justify-center gap-5 text-secondary">
-    <BasketIcon className="size-50" />
-    <p className="text-3xl font-semibold">No Results in Products</p>
-    <p className="text-gray-500 text-base max-w-lg text-center">
+  <div className="w-full h-full flex flex-col items-center justify-center gap-5 text-secondary">
+    <BasketIcon className="size-30 xl:size-40 2xl:size-50" />
+    <p className="text-2xl xl:text-3xl font-semibold">No Results in Products</p>
+    <p className="text-gray-500 text-sm 2xl:text-base max-w-lg text-center">
       {query ? (
         <>
           No results for the term{" "}

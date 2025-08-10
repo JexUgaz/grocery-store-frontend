@@ -17,13 +17,13 @@ const NavBar: React.FC<Props> = ({
 }) => (
   <nav
     id="main-navbar"
-    className={`sticky top-0 w-full h-[var(--navbar-height)] px-6 flex justify-center z-900 transition-colors duration-100 ease-in-out ${backgroundColor} ${foregroundColor} ${shadow}`}
+    className={`sticky top-0 w-full h-[var(--navbar-height)] px-2 sm:px-6 flex justify-center z-900 transition-colors duration-100 ease-in-out ${backgroundColor} ${foregroundColor} ${shadow}`}
   >
     <span className="absolute top-0 left-0 backdrop-blur w-[100dvw] h-[var(--navbar-height)] z-900"></span>
 
     <div className="w-full h-full flex items-center justify-between max-w-[var(--max-page-width)] z-999">
-      <Link href="/" className="tracking-wide flex gap-1 items-center">
-        <div className="size-15">
+      <Link href="/" className="flex gap-1 items-center">
+        <div className="size-15 drop-shadow-lg drop-shadow-white sm:drop-shadow-none">
           <Image
             src="/images/logo.webp"
             alt="Grocery Store logo"
@@ -33,13 +33,16 @@ const NavBar: React.FC<Props> = ({
             priority
           />
         </div>
-        <p className="text-[clamp(1.25rem,1.8dvw,1.875rem)] font-semibold font-fredoka">
+        <p className="hidden sm:block text-[clamp(1.25rem,1.8dvw,1.875rem)] font-semibold font-fredoka">
           Grocery Store
         </p>
       </Link>
 
-      <div id="navigation-items" className="flex gap-20 items-center">
-        <div className="flex items-center gap-8">
+      <div
+        id="navigation-items"
+        className="hidden sm:flex gap-4 md:gap-10 xl:gap-20 items-center"
+      >
+        <div className="flex items-center gap-4 xl:gap-8">
           {navbarItems.map(({ Icon, link, title }) => (
             <NavBarItem key={title} link={link}>
               <Icon className="size-5" /> {title}
@@ -50,6 +53,9 @@ const NavBar: React.FC<Props> = ({
           <ShoppingCart />
         </NavBarItem>
       </div>
+      <NavBarItem link="/cart" className="block sm:hidden relative py-3 px-4">
+        <ShoppingCart />
+      </NavBarItem>
     </div>
   </nav>
 );

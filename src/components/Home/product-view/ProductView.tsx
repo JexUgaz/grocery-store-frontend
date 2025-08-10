@@ -9,7 +9,7 @@ interface Props {
 const ProductView: React.FC<Props> = ({ products }) => {
   return (
     <DraggableScroll>
-      <div className="w-max flex gap-6 px-2 py-4">
+      <div className="px-20 lg:px-2 w-max flex gap-6 py-4">
         {products.map((product, idx) => (
           <ProductCard key={idx} product={product} />
         ))}

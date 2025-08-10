@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme static {
+  --breakpoint-xs: 30rem;
+  --breakpoint-ml: 56rem;
+
   --navbar-height: 80px;
   --topbar-height: 36px;
   --footer-height: 240px;
@@ -76,6 +79,7 @@
   }
 
   body {
+    min-height: 100dvh;
     width: 100dvw;
     overflow-x: hidden;
     background: var(--color-background);

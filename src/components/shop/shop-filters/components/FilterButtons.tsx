@@ -22,39 +22,41 @@ const FilterButtons: React.FC<Props> = ({
 }) => {
   const showClear = initEmpty ? !isEmpty : true;
   return (
-    <div className="flex flex-wrap justify-center gap-2">
-      {isDirty && (
-        <>
+    <div className="flex flex-col">
+      <div className="flex flex-wrap justify-center gap-2 items-center">
+        {isDirty && (
+          <>
+            <IconButton
+              onClick={onApplyFilter}
+              Icon={CheckCircleIcon}
+              text="Apply"
+              bgColorClass="bg-accent hover:bg-accent/80"
+              widthClass="lg:w-[95%]"
+              type="button"
+            />
+            <IconButton
+              onClick={onReset}
+              Icon={RefreshIcon}
+              text="Reset"
+              bgColorClass="bg-secondary hover:bg-secondary/80"
+              widthClass="lg:w-[47%]"
+              type="button"
+            />
+          </>
+        )}
+        {showClear && (
           <IconButton
-            onClick={onApplyFilter}
-            Icon={CheckCircleIcon}
-            text="Apply"
-            bgColorClass="bg-accent hover:bg-accent/80"
-            widthClass="w-[95%]"
+            onClick={onClear}
+            Icon={TrashIcon}
+            text="Clear"
+            bgColorClass="bg-red hover:bg-red/80"
+            widthClass="lg:w-[47%]"
             type="button"
           />
-          <IconButton
-            onClick={onReset}
-            Icon={RefreshIcon}
-            text="Reset"
-            bgColorClass="bg-secondary hover:bg-secondary/80"
-            widthClass="w-[47%]"
-            type="button"
-          />
-        </>
-      )}
-      {showClear && (
-        <IconButton
-          onClick={onClear}
-          Icon={TrashIcon}
-          text="Clear"
-          bgColorClass="bg-red hover:bg-red/80"
-          widthClass="w-[47%]"
-          type="button"
-        />
-      )}
+        )}
+      </div>
       {isDirty && (
-        <p className="mt-2 text-center text-xs text-secondary">
+        <p className="w-full lg:w-auto mt-2 text-center text-xs text-secondary">
           Please apply the filters to update results.
         </p>
       )}

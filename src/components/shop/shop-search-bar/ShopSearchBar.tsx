@@ -29,7 +29,7 @@ const ShopSearchBar: React.FC<Props> = ({ query = "" }) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("query", debounceSearch);
     router.push(`/shop?${params.toString()}`);
-  }, [debounceSearch, router, searchParams]);
+  }, [debounceSearch, router]);
 
   return (
     <div className="relative flex items-center justify-center">
@@ -38,6 +38,7 @@ const ShopSearchBar: React.FC<Props> = ({ query = "" }) => {
         placeholder="Search for products..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full"
       />
       {searchTerm && (
         <button

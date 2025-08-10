@@ -25,9 +25,13 @@ const ProductGrid: React.FC<Props> = async ({ filters, page, query, sort }) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+      <div className="w-full flex justify-center flex-wrap gap-x-3 gap-y-8">
         {data.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            width="w-[90%] xs:w-[70%] sm:w-[45%] md:w-[38%] ml:w-[32%] lg:w-[48%] xl:w-[31%] 2xl:w-[24%]"
+          />
         ))}
       </div>
       <Pagination metadata={pagination} />
