@@ -27,7 +27,7 @@ const NavBarItem: React.FC<Props> = ({
   return (
     <Link
       href={link}
-      className={`rounded-3xl font-bold flex gap-2 ${finalClasses} ${className}`}
+      className={`rounded-3xl font-bold flex gap-2 text-base ${finalClasses} ${className}`}
     >
       {children}
     </Link>

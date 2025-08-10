@@ -23,18 +23,23 @@ const NavBar: React.FC<Props> = ({
 
     <div className="w-full h-full flex items-center justify-between max-w-[var(--max-page-width)] z-999">
       <Link href="/" className="tracking-wide flex gap-1 items-center">
-        <Image
-          src="/images/logo.webp"
-          alt="Grocery Store logo"
-          width={60}
-          height={60}
-          priority
-        />
-        <p className="text-3xl font-semibold font-fredoka">Grocery Store</p>
+        <div className="size-15">
+          <Image
+            src="/images/logo.webp"
+            alt="Grocery Store logo"
+            layout="responsive"
+            width={478}
+            height={478}
+            priority
+          />
+        </div>
+        <p className="text-[clamp(1.25rem,1.8dvw,1.875rem)] font-semibold font-fredoka">
+          Grocery Store
+        </p>
       </Link>
 
       <div id="navigation-items" className="flex gap-20 items-center">
-        <div className="flex items-center gap-8 text-base">
+        <div className="flex items-center gap-8">
           {navbarItems.map(({ Icon, link, title }) => (
             <NavBarItem key={title} link={link}>
               <Icon className="size-5" /> {title}

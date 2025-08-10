@@ -2,9 +2,9 @@ import Image from "next/image";
 import ContentBanner from "./components/ContentBanner";
 
 const HomeBanner = () => (
-  <div className="relative w-full h-[80vh]">
+  <div className="relative w-full h-150">
     <Image
-      alt=""
+      alt="Image Banner"
       src="/images/banner/vegetables.webp"
       fill
       className="object-cover"
