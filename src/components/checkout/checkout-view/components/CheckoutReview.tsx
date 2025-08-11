@@ -43,7 +43,7 @@ const CheckoutReview: React.FC<Props> = ({
     await shoppingCartService.cleanCart();
 
     toast.custom(() => <PaymentSuccessfully client={client} />, {
-      duration: 10000,
+      duration: 5000,
     });
 
     router.replace("/");
