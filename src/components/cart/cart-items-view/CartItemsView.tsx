@@ -29,6 +29,7 @@ const CartItemsView: React.FC<Props> = ({ items }) => {
           </ul>
         )}
       </div>
+      <div className="block lg:hidden h-50"></div>
     </div>
   );
 };

@@ -43,7 +43,7 @@ const CheckoutReview: React.FC<Props> = ({
     await shoppingCartService.cleanCart();
 
     toast.custom(() => <PaymentSuccessfully client={client} />, {
-      duration: 5000,
+      duration: 10000,
     });
 
     router.replace("/");
@@ -119,18 +119,18 @@ const CheckoutReview: React.FC<Props> = ({
         <span className="text-sm">Total:</span> ${totalAmount.toFixed(2)}
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-end gap-3 pt-6">
+      <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-6">
         <button
           onClick={goBack}
           disabled={isProcessing}
-          className="px-6 py-2 border border-gray-300 text-gray-700 rounded-3xl hover:bg-gray-50 disabled:bg-black/5 disabled:cursor-auto transition-colors duration-200 flex gap-1 items-center"
+          className="px-6 py-2 border border-gray-300 text-gray-700 rounded-3xl hover:bg-gray-50 disabled:bg-black/5 disabled:cursor-auto transition-colors duration-200 flex gap-1 items-center justify-center"
         >
           <EditIcon className="size-5" /> Edit Information
         </button>
         <button
           onClick={finalizeOrder}
           disabled={isProcessing}
-          className="px-6 py-2 bg-accent hover:bg-accent/80 disabled:bg-accent/50 disabled:cursor-auto text-white font-bold rounded-3xl transition-colors duration-200 shadow-sm flex gap-1 items-center"
+          className="px-6 py-2 bg-accent hover:bg-accent/80 disabled:bg-accent/50 disabled:cursor-auto text-white font-bold rounded-3xl transition-colors duration-200 shadow-sm flex gap-1 items-center justify-center"
         >
           {isProcessing && (
             <>

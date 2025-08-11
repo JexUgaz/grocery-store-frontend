@@ -55,7 +55,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${fredoka.variable} antialiased`}
       >
-        <Toaster position="top-right" richColors closeButton />
+        <Toaster position="bottom-right" richColors closeButton />
         <TopBar />
         {children}
       </body>

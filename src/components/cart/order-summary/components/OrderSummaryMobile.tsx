@@ -28,7 +28,7 @@ const OrderSummaryMobile: React.FC<Props> = ({
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   return (
-    <div className="absolute w-full bottom-0 block lg:hidden bg-white max-w-180 rounded-t-4xl shadow-black shadow-2xl text-secondary">
+    <div className="fixed w-full bottom-0 block lg:hidden bg-white max-w-180 rounded-t-4xl shadow-black shadow-2xl text-secondary">
       <button
         onClick={() => setShowMoreInfo((prev) => !prev)}
         className="absolute top-0 left-[50%] -translate-y-[30%] -translate-x-[50%] rounded-full bg-white p-3"

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const PaymentSuccessfully: React.FC<Props> = ({ client: { name, email } }) => (
-  <div className="w-[400px] rounded-3xl border border-gray-200 p-2 bg-white shadow-lg">
+  <div className="w-full max-w-[300px] sm:max-w-[400px] rounded-3xl border border-gray-200 p-2 bg-white shadow-lg">
     <div className="flex items-center gap-3">
       <CheckCircleIcon className="text-accent size-30" />
       <div className="flex flex-col gap-1 justify-center">

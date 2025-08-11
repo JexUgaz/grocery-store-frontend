@@ -2,6 +2,7 @@ import TextInput from "@/components/shared/inputs/TextInput";
 import { Card } from "@/types/Card";
 import { Client } from "@/types/Client";
 import { CheckoutErrors } from "@/components/checkout/validations/checkoutSchema";
+import PersonIcon from "@/components/icons/PersonIcon";
 
 interface Props {
   totalAmount: number;
@@ -25,10 +26,13 @@ const CheckoutForms: React.FC<Props> = ({
   const clientErrors = formErrors.client;
   const cardErrors = formErrors.card;
   return (
-    <form onSubmit={handleSubmit} className="w-full flex justify-center gap-10">
-      <div className="flex-1 max-w-3xl space-y-4 bg-white p-8 rounded-4xl">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full flex flex-col lg:flex-row justify-center items-center lg:items-start gap-5 xl:gap-10"
+    >
+      <div className="w-full xs:w-[90%] lg:w-[50%] xs:max-w-3xl space-y-4 bg-white p-8 rounded-4xl">
         <h2 className="text-2xl font-semibold text-secondary mb-4">
-          Customer Information
+          <PersonIcon className="size-5" /> Customer Information
         </h2>
         <TextInput
           label="Full Name"
@@ -38,9 +42,10 @@ const CheckoutForms: React.FC<Props> = ({
           placeholder="Enter your full name"
           error={clientErrors?.name}
           required
+          className="w-full"
         />
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-1">
           <TextInput
             label="Email"
             name="email"
@@ -49,7 +54,7 @@ const CheckoutForms: React.FC<Props> = ({
             onChange={handleChangeClient}
             placeholder="Enter your email"
             required
-            className="w-full"
+            className="w-full sm:w-[48%]"
             error={clientErrors?.email}
           />
 
@@ -61,11 +66,11 @@ const CheckoutForms: React.FC<Props> = ({
             onChange={handleChangeClient}
             placeholder="Enter your phone number"
             required
-            className="w-full"
+            className="w-full sm:w-[48%]"
             error={clientErrors?.phone}
           />
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-1">
           <TextInput
             label="Address"
             name="address"
@@ -73,7 +78,7 @@ const CheckoutForms: React.FC<Props> = ({
             onChange={handleChangeClient}
             placeholder="Enter your address"
             required
-            className="w-full"
+            className="w-full sm:w-[48%]"
             error={clientErrors?.address}
           />
 
@@ -84,7 +89,7 @@ const CheckoutForms: React.FC<Props> = ({
             onChange={handleChangeClient}
             placeholder="Enter your city"
             required
-            className="w-full"
+            className="w-full sm:w-[48%]"
             error={clientErrors?.city}
           />
         </div>
@@ -96,9 +101,10 @@ const CheckoutForms: React.FC<Props> = ({
           placeholder="E.g. near the park"
           required={false}
           error={clientErrors?.reference}
+          className="w-full"
         />
       </div>
-      <div className="flex-1 flex flex-col max-w-xl space-y-4 bg-white rounded-4xl p-8">
+      <div className="w-full xs:w-[90%] lg:w-[50%] xs:max-w-3xl lg:max-w-xl space-y-4 bg-white rounded-4xl p-8">
         <h2 className="text-2xl font-semibold text-secondary mb-4">
           Payment Information
         </h2>
@@ -122,7 +128,7 @@ const CheckoutForms: React.FC<Props> = ({
           error={cardErrors?.cardName}
         />
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-1">
           <TextInput
             label="Expiry Date"
             name="expiry"
@@ -130,7 +136,7 @@ const CheckoutForms: React.FC<Props> = ({
             onChange={handleChangeCard}
             placeholder="MM/YY"
             required
-            className="w-full"
+            className="w-full sm:w-[48%]"
             error={cardErrors?.expiry}
           />
           <TextInput
@@ -141,7 +147,7 @@ const CheckoutForms: React.FC<Props> = ({
             onChange={handleChangeCard}
             placeholder="123"
             required
-            className="w-full"
+            className="w-full sm:w-[48%]"
             error={cardErrors?.cvv}
           />
         </div>

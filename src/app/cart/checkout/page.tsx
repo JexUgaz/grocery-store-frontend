@@ -15,7 +15,7 @@ const CheckoutPage = async () => {
   );
 
   return (
-    <main className="w-full bg-muted py-12 px-6 flex justify-center">
+    <main className="w-full bg-muted py-12 px-3 lg:px-6 flex justify-center">
       <CheckoutView totalAmount={totalAmount} />
     </main>
   );
