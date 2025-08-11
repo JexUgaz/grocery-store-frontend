@@ -3,6 +3,7 @@ import { Card } from "@/types/Card";
 import { Client } from "@/types/Client";
 import { CheckoutErrors } from "@/components/checkout/validations/checkoutSchema";
 import PersonIcon from "@/components/icons/PersonIcon";
+import CardIcon from "@/components/icons/CardIcon";
 
 interface Props {
   totalAmount: number;
@@ -31,8 +32,8 @@ const CheckoutForms: React.FC<Props> = ({
       className="w-full flex flex-col lg:flex-row justify-center items-center lg:items-start gap-5 xl:gap-10"
     >
       <div className="w-full xs:w-[90%] lg:w-[50%] xs:max-w-3xl space-y-4 bg-white p-8 rounded-4xl">
-        <h2 className="text-2xl font-semibold text-secondary mb-4">
-          <PersonIcon className="size-5" /> Customer Information
+        <h2 className="text-xl sm:text-2xl font-semibold text-secondary mb-4 flex items-center gap-1 line-clamp-1">
+          <PersonIcon className="size-4 sm:size-5" /> Customer Information
         </h2>
         <TextInput
           label="Full Name"
@@ -105,8 +106,8 @@ const CheckoutForms: React.FC<Props> = ({
         />
       </div>
       <div className="w-full xs:w-[90%] lg:w-[50%] xs:max-w-3xl lg:max-w-xl space-y-4 bg-white rounded-4xl p-8">
-        <h2 className="text-2xl font-semibold text-secondary mb-4">
-          Payment Information
+        <h2 className="text-xl sm:text-2xl font-semibold text-secondary mb-4 flex items-center gap-1">
+          <CardIcon className="size-5 sm:size-6" /> Payment Information
         </h2>
         <TextInput
           label="Card Number"

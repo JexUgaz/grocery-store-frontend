@@ -68,7 +68,7 @@ const Footer: React.FC<Props> = ({ className }) => (
     </div>
 
     <div className="mt-8 border-t border-white/20 pt-4 text-center text-xs text-white/60">
-      © {new Date().getFullYear()} Grocery Store. All rights reserved.
+      © {new Date().getFullYear()} Loammi Ugaz. All rights reserved
     </div>
   </footer>
 );

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navbarItems } from "@/data/navbarItems";
-import NavBarItem from "./components/NavBarItem";
-import ShoppingCart from "./components/ShoppingCart";
+import NavBarMobile from "./components/NavBarMobile";
+import NavBarDesktop from "./components/NavBarDesktop";
 
 interface Props {
   shadow?: string;
@@ -21,7 +20,7 @@ const NavBar: React.FC<Props> = ({
   >
     <span className="absolute top-0 left-0 backdrop-blur w-[100dvw] h-[var(--navbar-height)] z-900"></span>
 
-    <div className="w-full h-full flex items-center justify-between max-w-[var(--max-page-width)] z-999">
+    <div className="w-full h-full flex items-center justify-between max-w-[var(--max-page-width)] z-999 px-2 sm:px-0">
       <Link href="/" className="flex gap-1 items-center">
         <div className="size-15 drop-shadow-lg drop-shadow-white sm:drop-shadow-none">
           <Image
@@ -38,24 +37,8 @@ const NavBar: React.FC<Props> = ({
         </p>
       </Link>
 
-      <div
-        id="navigation-items"
-        className="hidden sm:flex gap-4 md:gap-10 xl:gap-20 items-center"
-      >
-        <div className="flex items-center gap-4 xl:gap-8">
-          {navbarItems.map(({ Icon, link, title }) => (
-            <NavBarItem key={title} link={link}>
-              <Icon className="size-5" /> {title}
-            </NavBarItem>
-          ))}
-        </div>
-        <NavBarItem link="/cart" className="relative py-3 px-4">
-          <ShoppingCart />
-        </NavBarItem>
-      </div>
-      <NavBarItem link="/cart" className="block sm:hidden relative py-3 px-4">
-        <ShoppingCart />
-      </NavBarItem>
+      <NavBarDesktop />
+      <NavBarMobile />
     </div>
   </nav>
 );
